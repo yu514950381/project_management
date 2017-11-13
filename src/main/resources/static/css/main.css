@@ -4,70 +4,86 @@ body{
   background: #393D49;//设置背景颜色
 }
 
-.main{
+.re_main{
   background-color: #dddddd;//设置主题颜色
   float: inherit;
-  margin-top: 10%;
-  margin-left: 30%;
-  margin-right: 30%;
-  border-radius: 15px;
-  border-width: 5px;
-  border:1px solid #000;
-  box-shadow:0px 0px 1px 0px #ccc ;
+  width:570px;
+  height: 420px;
+  /*设置绝对位置*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left:  -285px;
+
+  padding-top: 0.5%;
+  border-radius: 5px;
 
 }
-.main .up{
-
-  margin-top: 4%;
+.re_main .re_up{
+  height:80px;
   margin-left: 5%;
-  margin-bottom: 4%;
+  line-height: 80px;
 
 }
-.main .up #title{
-
-  font-size: 2.3ch;
+.re_main .re_up #re_title{
+  font-size: 1.25rem;
 
 }
-.main .body{
+.re_main .re_body{
+  height:270px;
   padding-top: 5%;
-  padding-bottom: 55%;
   background-color: #ffffff;
-  border:1px solid #000;
 }
-.body .logo{
-  padding-top:5%;
-  padding-left: 6%;
+.re_body .re_logo{
+  margin-top: 2%;
+  margin-left: 4%;
+  padding-left: 3%;
   float:left;
   width: 20%;
   text-align: center;
 }
-.logo .img{
-  margin-top: 10%;
+.re_logo .re_img{
+  height: auto;
+
 }
-.body .nav{
-  margin-right: 6%;
-  margin-bottom:8%;
+.re_body .re_logo h2{
+  margin-top: 5%;
+  font-size: 1rem;
+}
+.re_body .re_nav{
   float:right;
-  width:63%;
-  line-height: 0.5px;
+  width:60%;
 }
-
-.nav .layui-form-item .layui-btn{
+.re_body .re_nav{
+  float:right;
+  width: 70%;
+}
+.re_nav .layui-form-item .layui-form-label{
+  font-size: 0.9rem;
+}
+.re_nav .layui-form-item .layui-input{
+  width: 125%;
+}
+.re_nav .layui-form-item .layui-btn{
   float: left;
-  width:30%
+  width: 200px;
+  height: 38px;
+  cursor: pointer;
+  font-size: 16px;
 }
-.nav .layui-form-item #button{
-  margin-right: 18%;
-  float: right;
-  width:30%
-
-}
-.nav a{
-  margin-left:10%;
+.re_nav a{
+  font-size:12px;
+  margin-left:155px;
   margin-top:5%;
 }
 
-.main .down {
-  margin-top:10px;
+.re_main .re_down {
+  height: 40px;
   text-align: center;
+  line-height: 40px;
+
+}
+.re_main .re_down h2{
+  font-size: 10px;
 }
