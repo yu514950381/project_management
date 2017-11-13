@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>用户登录界面</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css"/>
+    <link rel="stylesheet" href="../layui-v2.1.7/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/verificationCode.css">
+    <script src="../layui-v2.1.7/layui/layui.js"></script>
+    <script src="../js/verificationCode.js"></script>
+    <style>
+        .welcome{
+            background-color:#393D49 ;
+        }
+        .lg_main{
+            margin:20% auto;
+            width:570px;
+            height:445px;
+            border-radius: 15px;
+            background-color: #dddddd;
+        }
+        .layui-input-block.lg{
+            margin-right:10px;
+        }
+        .lg_up{
+            padding:30px 20px;
+        }
+        .lg_body{
+            height:280px;
+            padding:20px 45px;
+            background-color: white;
+        }
+        .lg_logo{
+            float: left;
+            padding:50px 0;
+        }
+        .lg_form{
+            float: right;
+        }
+        .lg_down{
+            padding:10px 0;
+        }
+        .lg_main
+        #title{
+            font-size:2.3ch;
+        }
+        #text{
+            text-align:center;
+        }
+        .lg_else{
+            float:left;
+            width:100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="welcome">
+<div class="lg_main">
+    <div class="lg_up">
+        <h2 id="title">飞马管理系统登录界面</h2>
+    </div>
+    <div class="lg_body">
+        <div class="lg_body_main">
+            <div class="lg_logo">
+                <div class="img"><img src="../images/1.png" height="88" width="132"/></div>
+                <h2>飞马科技</h2>
+            </div>
+            <div class="lg_form">
+                <form th:action="#" th:object="${user}" method="post" th:method="post" class="layui-form">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">登&nbsp;录&nbsp;名:</label>
+                        <div class="layui-input-inline">
+                            <input name="loginname" lay-verify="required" placeholder="登录名" autocomplete="off" class="layui-input" type="text" th:field="*{loginname}">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</label>
+                        <div class="layui-input-inline">
+                            <input name="password" lay-verify="required" placeholder="请填写6到12位密码" autocomplete="off" class="layui-input" type="password" th:field="*{pll}">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">验&nbsp;证&nbsp;码:</label>
+                        <div class="layui-input-inline">
+                            <div id="dragContainer">
+                                <div id="dragBg"></div>
+                                <div id="dragText"></div>
+                                <div id="dragHandler" class="dragHandlerBg"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block lg">
+                            <button class="layui-btn" lay-submit="" lay-filter="demo1" type="submit" style="float:left;">登录</button>
+                            <button type="reset" class="layui-btn layui-btn-primary" id="button" style="float:right;">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="lg_else">
+                <span><a>还没有账号？赶快注册一个吧</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="lg_down">
+        <h2 id="text">@版权所用飞马科技</h2></div>
+</div>
+</div>
+<script src="../layui-v2.1.7/layui/layui.js"></script>
+<script>
+
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form
+        //自定义验证规则
+        form.verify({
+            username: function(value){
+                if(value.length < 5){
+                    return '用户名至少得5个字符啊';
+                }
+            }
+            ,login: function(value){
+                if(value.length>20){
+                    return '用户名不能超过二十';
+                }
+            }
+            ,pass: function(value) {
+                if (value.length < 6||value.length>12) {
+                    return '密码必须6到12位';
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
