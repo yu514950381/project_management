@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:float="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>项目管理</title>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/normalize/7.0.0/normalize.min.css"/>
+    <link rel="stylesheet" href="../layui-v2.1.7/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/test.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">飞码项目管理</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item">
+                <a href="javascript:;">模块</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">未关闭</a></dd>
+                    <dd><a href="">所有</a></dd>
+                    <dd><a href="">指派给我</a></dd>
+                    <dd><a href="">已延期</a></dd>
+                    <dd><a href="">需求变动</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <div class="text">
+            <form>
+                <input type="text"/>
+                <button class="layui-btn layui-btn-primary layui-btn-mini" id="button"><i class="layui-icon" style="font-size: 40px; color: #1E9FFF;">&#xe615;</i>搜索</button>
+            </form>
+        </div>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                    贤心
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="">退出</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">所有商品</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="javascript:;">列表三</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">解决方案</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">云市场</a></li>
+                <li class="layui-nav-item"><a href="">发布商品</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <div style="padding: 15px;" class="header">
+            <div style="float:left;width:100%;background-color: #cccccc">
+                <button class="layui-btn layui-btn-sm layui-btn-normal">所有模块</button>
+                <span class="layui-breadcrumb" lay-separator="|">
+                <a href="">所有</a>
+                <a href="">已延期</a>
+                <a href="">已延期</a>
+                <a href="">需求变动</a>
+                <a href="">更多</a>
+            </span>
+                <div style="float:right;">
+                <span class="layui-breadcrumb" lay-separator="|">
+                    <a href=""><i class="layui-icon" style="font-size: 20px; color: #1E9FFF;">&#xe63c;</i>报表</a>
+                    <a href=""><i class="layui-icon" style="font-size: 20px; color: #1E9FFF;">&#xe61e;</i>导出</a>
+                    <a href=""><i class="layui-icon" style="font-size: 18px; color: #1E9FFF;">&#xe62f;</i>导入</a>
+                </span>
+                        <button class="layui-btn layui-btn-sm layui-btn-normal">+建任务</button>
+                </div>
+
+            </div>
+        </div>
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <table id="demo" lay-filter="test"></table>
+            <script type="text/html" id="barDemo">
+                <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+                <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+            </script>
+        </div>
+    </div>
+</div>
+
+<script src="../layui-v2.1.7/layui/layui.js"></script>
+<script>
+
+    layui.use('table', function(){
+        var table = layui.table;
+        table.render({
+            elem: '#demo'
+            ,height: 315
+            ,url: '/demo/table/user/' //数据接口
+            ,page: true //开启分页
+            ,cols: [[ //表头
+                {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
+                ,{field: 'username', title: '项目名称', width:100}
+                ,{field: 'sex', title: '项目属性', width:100, sort: true}
+                ,{field: 'city', title: '开始日期', width:100,sort:true}
+                ,{field: 'sign', title: '结束日期', width:100,sort:true}
+                ,{field: 'experience', title:'项目状态', width: 100}
+                ,{field: 'score', title: '加盟日', width: 80, sort: true}
+                ,{field: 'classify', title: '角色', width: 80}
+                ,{field: 'wealth', title: '备注', width: 135}
+            ]]
+        });
+    });
+
+</script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+</body>
