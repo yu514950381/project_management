@@ -10,6 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+/**
+ * @author 喻世琦
+ * 项目成员管理的测试Ctr类
+ * 之后会将正式的功能上传到本类中
+ * */
+
+
 @RestController
 @RequestMapping("/memberManagementCtrl")
 public class MemberManagementCtrl {
