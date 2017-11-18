@@ -4,7 +4,7 @@
 <mapper namespace="com.feima.project_management.dao.MemberManagementMapper">
 
     <select id="testSelect" resultType="map">
-        SELECT * FROM memberManagement
+        SELECT * FROM memberManagement limit 10
     </select>
 
     <insert id="testInsert" parameterType="Map">
