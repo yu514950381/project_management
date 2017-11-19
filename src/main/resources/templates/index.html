@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
+<head th:include="headCommonConfig">
+    <title>项目成员管理</title>
     <meta charset="UTF-8"/>
-    <title>index</title>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/normalize/7.0.0/normalize.min.css"/>
+    <link rel="stylesheet" th:href="@{/layui-v2.1.7/layui/css/layui.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <script th:src="@{/layui-v2.1.7/layui/layui.js}"></script>
 </head>
-<body>
-hello world
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <!--头部导航栏-->
+    <div class="layui-header" th:include="headMenue">
+    </div>
+    <!--侧导航栏-->
+    <div class="layui-side layui-bg-black" th:include="leftMenue">
+    </div>
+
+    <div class="layui-body" style="background-color: white;">
+        <!--正文部分-->
+    </div>
+</div>
 </body>
 </html>
