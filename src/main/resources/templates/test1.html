@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:include="headCommonConfig">
+    <title>项目成员管理</title>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <!--头部导航栏-->
+    <div class="layui-header" th:include="headMenue">
+    </div>
+    <!--侧导航栏-->
+    <div class="layui-side layui-bg-black" th:include="leftMenue">
+    </div>
+    <!--正文部分-->
+    <div class="layui-body" style="background-color: white;">
+        <div style="padding:15px;">
+            <div class="memMa_body_header">
+                <h2 class="memMa_projectName">项目名称</h2>
+                <div style="float: right">
+                    <button class="layui-btn" data-method="notice" id="addMember">新增成员</button>
+                </div>
+            </div>
+
+            <table class="layui-table" lay-data="{url:'/memberManagementCtrl/showAll', page:true, id:'idTest',method:'post'}" lay-filter="demo">
+                <thead>
+                <tr>
+                    <th lay-data="{field:'id', width:150, fixed: true}">ID</th>
+                    <th lay-data="{field:'username', width:250}">姓名</th>
+                    <th lay-data="{field:'position', width:300}">团队职务</th>
+                    <th lay-data="{field:'mission', width:450, event:'setMission',style:'cursor: pointer;'}">正在执行的任务</th>
+                    <th lay-data="{field:'remark', width:450,event:'setRemark',style:'cursor: pointer;'}">备注</th>
+                    <th lay-data="{fixed: 'right',width:200,align:'center', toolbar: '#barDemo'}">操作</th>
+                </tr>
+                </thead>
+            </table>
+
+            <script type="text/html" id="barDemo">
+                <a class="layui-btn layui-btn-xs" lay-event="del">删除</a>
+            </script>
+        </div>
+    </div>
+</div>
+</body>
+</html>

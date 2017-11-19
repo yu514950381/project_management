@@ -7,6 +7,7 @@ import com.feima.project_management.service.MemberManagementService;
 import com.feima.project_management.util.JSONTool;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 
@@ -44,4 +45,11 @@ public class MemberManagementCtrl {
 //        return mv;
 //
 //    }
+
+    @RequestMapping("/test1")
+    public ModelAndView test(ModelAndView mv){
+        mv.setViewName("test1");
+        return mv;
+    }
+
 }
