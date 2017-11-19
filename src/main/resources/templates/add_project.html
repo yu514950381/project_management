@@ -1,113 +1,71 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:float="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+    <title>项目成员管理</title>
     <meta charset="UTF-8"/>
-    <title>建项目</title>
-    <meta name="renderer" content="webkit">
+    <meta name="renderer" content="webkit"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="stylesheet" href="http://cdn.bootcss.com/normalize/7.0.0/normalize.min.css"/>
-    <link rel="stylesheet" href="../layui-v2.1.7/layui/css/layui.css" media="all">
-    <link rel="stylesheet" href="../css/test.css">
+    <link rel="stylesheet" th:href="@{/layui-v2.1.7/layui/css/layui.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <script th:src="@{/layui-v2.1.7/layui/layui.js}"></script>
+    <script th:src="@{/js/memberManagement.js}"></script>
 </head>
-<body class="layui-layout-body">
+<body class="layui-layout-body" style="background-color: white">
 <div class="layui-layout layui-layout-admin">
-    <div class="layui-header">
-        <div class="layui-logo">飞码项目管理</div>
-        <!-- 头部区域（可配合layui已有的水平导航） -->
-        <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item">
-                <a href="javascript:;">模块</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">未关闭</a></dd>
-                    <dd><a href="">所有</a></dd>
-                    <dd><a href="">指派给我</a></dd>
-                    <dd><a href="">已延期</a></dd>
-                    <dd><a href="">需求变动</a></dd>
-                </dl>
-            </li>
-        </ul>
-        <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item">
-                <a href="javascript:;">
-                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                    贤心
-                </a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">基本资料</a></dd>
-                    <dd><a href="">安全设置</a></dd>
-                </dl>
-            </li>
-            <li class="layui-nav-item"><a href="">退出</a></li>
-        </ul>
+    <!--头部导航栏-->
+    <div class="layui-header" th:include="headMenue">
     </div>
-
-    <div class="layui-side layui-bg-black">
-        <div class="layui-side-scroll">
-            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-                <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:;">所有商品</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                        <dd><a href="javascript:;">列表三</a></dd>
-                        <dd><a href="">超链接</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">解决方案</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                        <dd><a href="">超链接</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item"><a href="">云市场</a></li>
-                <li class="layui-nav-item"><a href="">发布商品</a></li>
-            </ul>
-        </div>
+    <!--侧导航栏-->
+    <div class="layui-side layui-bg-black" th:include="leftMenue">
     </div>
-
+    <!--正文部分-->
     <div class="layui-body">
-        <div style="padding: 15px;">
+        <div style="padding:25px">
+            <div class="memMa_body_header">
+                <h2 class="memMa_projectName">建管理</h2>
+            </div>
+        </div>
+        <div style="padding: 15px">
             <form class="layui-form"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
                 <div class="layui-form-item">
                     <label class="layui-form-label">项目名称</label>
                     <div class="layui-input-block">
-                        <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input">
+                        <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input"/>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">项目属性</label>
                     <div class="layui-input-block">
-                        <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input">
+                        <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input"/>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">开始日期</label>
                     <div class="layui-input-block">
-                        <input type="text" class="layui-input" id="test1">
+                        <input type="text" class="layui-input" id="test1"/>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">结束日期</label>
                     <div class="layui-input-block">
-                        <input type="text" class="layui-input" id="test2">
+                        <input type="text" class="layui-input" id="test2"/>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">项目状态</label>
                     <div class="layui-input-block">
-                        <input type="radio" name="sex" value="0" title="已完成">
-                        <input type="radio" name="sex" value="1" title="刚开始">
-                        <input type="radio" name="sex" value="2" title="正在进行时" checked>
+                        <input type="radio" name="sex" value="0" title="已完成"/>
+                        <input type="radio" name="sex" value="1" title="刚开始"/>
+                        <input type="radio" name="sex" value="2" title="正在进行时" checked=""/>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">加盟日</label>
                     <div class="layui-input-block">
-                        <input type="text" class="layui-input" id="test3">
+                        <input type="text" class="layui-input" id="test3"/>
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -128,7 +86,7 @@
                 </div>
                 <div class="layui-form-item">
                     <div class="layui-input-block">
-                        <button class="layui-btn" lay-submit lay-filter="*">立即提交</button>
+                        <button class="layui-btn" lay-submit="" lay-filter="*">立即提交</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                     </div>
                 </div>
@@ -137,8 +95,6 @@
         </div>
     </div>
 </div>
-
-<script src="../layui-v2.1.7/layui/layui.js"></script>
 <script>
     layui.use('form', function(){
         var form = layui.form;
@@ -188,3 +144,4 @@
     });
 </script>
 </body>
+</html>
