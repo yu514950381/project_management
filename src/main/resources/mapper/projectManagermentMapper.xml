@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="com.feima.project_management.dao.ProjectManagementMapper">
+
+    <select id="selectProjectAll" resultType="map">
+        SELECT * FROM project limit 10
+    </select>
+
+    <insert id="insertProject" parameterType="com.feima.project_management.model.Project">
+        INSERT into project(name,attribute,startTime,endTime,status,joinTime,role,remark) VALUES(#{name},#{attribute},#{startTime},#{endTime},#{status},#{joinTime},#{role},#{remark})
+    </insert>
+
+</mapper>
