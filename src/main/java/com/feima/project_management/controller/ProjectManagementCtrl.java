@@ -1,23 +1,42 @@
 package com.feima.project_management.controller;
 
 
+import com.feima.project_management.model.Project;
 import com.feima.project_management.service.ProjectManagementService;
 import com.feima.project_management.util.JSONTool;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
+import java.util.Map;
 
-@RestController
+
+@Controller
 @RequestMapping("/projectManagementCtrl")
 public class ProjectManagementCtrl {
 
-    @Resource(name = "/projectManagementService")
+    @Autowired
     private ProjectManagementService projectManagementService;
 
+    @ResponseBody
     @RequestMapping("/showAll")
     public String showAll(){
         String result = JSONTool.JsonToLayui(projectManagementService.selectProjectAll());
         return result;
+    }
+    //添加项目入口
+    @RequestMapping("/addProject")
+    public String addProject(Map<String,Project> map){
+        Project p = new Project();
+        map.put("project",p);
+        return "add_project";
+    }
+    /*
+    执行添加项目管理操作
+     */
+    @RequestMapping(value = "/doAddProject",method = RequestMethod.POST)
+    public String doAddProject(@ModelAttribute("project") Project project){
+        projectManagementService.insertProject(project);
+        return "add_project";
     }
 }

@@ -29,64 +29,64 @@
             </div>
         </div>
         <div style="padding: 15px">
-            <form class="layui-form"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+            <form class="layui-form" th:action="@{/projectManagementCtrl/doAddProject}" th:object="${project}" th:method="post" method="post"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
                 <div class="layui-form-item">
                     <label class="layui-form-label">项目名称</label>
                     <div class="layui-input-block">
-                        <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input"/>
+                        <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input" th:field="*{name}"/>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">项目属性</label>
                     <div class="layui-input-block">
-                        <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input"/>
+                        <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input" th:field="*{attribute}"/>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">开始日期</label>
                     <div class="layui-input-block">
-                        <input type="text" class="layui-input" id="test1"/>
+                        <input type="text" class="layui-input" id="test1" th:field="*{startTime}"/>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">结束日期</label>
                     <div class="layui-input-block">
-                        <input type="text" class="layui-input" id="test2"/>
+                        <input type="text" class="layui-input" id="test2" th:field="*{endTime}"/>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">项目状态</label>
                     <div class="layui-input-block">
-                        <input type="radio" name="sex" value="0" title="已完成"/>
-                        <input type="radio" name="sex" value="1" title="刚开始"/>
-                        <input type="radio" name="sex" value="2" title="正在进行时" checked=""/>
+                        <input type="radio" name="sex" value="0" title="已完成" checked=""  th:field="*{status}"/>
+                        <input type="radio" name="sex" value="1" title="刚开始" th:field="*{status}"/>
+                        <input type="radio" name="sex" value="2" title="正在进行时" th:field="*{status}"/>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">加盟日</label>
                     <div class="layui-input-block">
-                        <input type="text" class="layui-input" id="test3"/>
+                        <input type="text" class="layui-input" id="test3" th:field="*{joinTime}"/>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">角色</label>
                     <div class="layui-input-block">
-                        <select name="interest" lay-filter="aihao">
+                        <select name="interest" lay-filter="aihao" th:field="*{role}">
                             <option value="0">项目经理</option>
                             <option value="1">程序猿</option>
-                            <option value="1">工程狮</option>
+                            <option value="2">工程狮</option>
                         </select>
                     </div>
                 </div>
                 <div class="layui-form-item layui-form-text">
                     <label class="layui-form-label">备注</label>
                     <div class="layui-input-block">
-                        <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+                        <textarea placeholder="请输入内容" class="layui-textarea" th:field="*{remark}"></textarea>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <div class="layui-input-block">
-                        <button class="layui-btn" lay-submit="" lay-filter="*">立即提交</button>
+                        <button class="layui-btn" lay-submit="" lay-filter="*" type="submit">立即提交</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                     </div>
                 </div>

@@ -6,7 +6,22 @@
     <select id="selectProjectAll" resultType="map">
         SELECT * FROM project limit 10
     </select>
-
+    <!-->条件查询<-->
+    <select id="selectProject" resultType="map">
+        SELECT * FROM project
+        <where>
+            <if test="id!=null and id!=''">
+                AND id=#{id}
+            </if>
+            <if test="name!=null and name!=''">
+                AND id=#{name}
+            </if>
+            <if test="id!=null and id!=''">
+                AND id=#{id}
+            </if>
+        </where>
+    </select>
+    <!-->插入操作<-->
     <insert id="insertProject" parameterType="com.feima.project_management.model.Project">
         INSERT into project(name,attribute,startTime,endTime,status,joinTime,role,remark) VALUES(#{name},#{attribute},#{startTime},#{endTime},#{status},#{joinTime},#{role},#{remark})
     </insert>
