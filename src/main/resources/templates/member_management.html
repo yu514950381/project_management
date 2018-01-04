@@ -23,30 +23,45 @@
     </div>
     <!--正文部分-->
     <div class="layui-body" style="background-color: white;">
-        <div style="padding:15px;">
-            <div class="memMa_body_header">
-                <h2 class="memMa_projectName">项目名称</h2>
-                <div style="float: right">
-                    <button class="layui-btn" data-method="notice" id="addMember">新增成员</button>
-                </div>
-            </div>
+        <div class="layui-main">
+            <fieldset class="layui-elem-field site-demo-button" style="margin-top: 30px;">
+                <legend>成员概览</legend>
+                <form class="layui-form" action="">
+                    <div style="padding:15px;">
+                        <div class="memMa_body_header">
+                            <div style="float:left;">
+                                <div class="layui-inline">
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="search" class="layui-input" placeholder="姓名"/>
+                                    </div>
+                                    <button class="layui-btn" data-method="notice">搜索</button>
+                                </div>
+                            </div>
+                            <div style="float: right">
+                                <button class="layui-btn" data-method="notice" id="addMember">新增成员</button>
+                            </div>
+                        </div>
 
-            <table class="layui-table" lay-data="{url:'/memberManagementCtrl/showAll', page:true, id:'idTest',method:'post'}" lay-filter="demo">
-                <thead>
-                <tr>
-                    <th lay-data="{field:'id', width:150, fixed: true}">ID</th>
-                    <th lay-data="{field:'username', width:250}">姓名</th>
-                    <th lay-data="{field:'position', width:300}">团队职务</th>
-                    <th lay-data="{field:'mission', width:450, event:'setMission',style:'cursor: pointer;'}">正在执行的任务</th>
-                    <th lay-data="{field:'remark', width:450,event:'setRemark',style:'cursor: pointer;'}">备注</th>
-                    <th lay-data="{fixed: 'right',width:200,align:'center', toolbar: '#barDemo'}">操作</th>
-                </tr>
-                </thead>
-            </table>
+                        <table class="layui-table" lay-data="{url:'/memberManagementCtrl/showAll', page:true, id:'idTest',method:'post'}" lay-filter="demo">
+                            <thead>
+                            <tr>
+                                <th lay-data="{field:'id', width:150, fixed: true}">ID</th>
+                                <th lay-data="{field:'username', width:250}">姓名</th>
+                                <th lay-data="{field:'position', width:300}">团队职务</th>
+                                <th lay-data="{field:'mission', event:'setMission',style:'cursor: pointer;'}">正在执行的任务</th>
+                                <th lay-data="{fixed: 'right',width:200,align:'center', toolbar: '#barDemo'}">操作</th>
+                            </tr>
+                            </thead>
+                        </table>
 
-            <script type="text/html" id="barDemo">
-                <a class="layui-btn layui-btn-xs" lay-event="del">删除</a>
-            </script>
+                        <script type="text/html" id="barDemo">
+                            <a class="layui-btn layui-btn-xs" lay-event="point">指派</a>
+                            <a class="layui-btn layui-btn-xs" lay-event="viewDetail">查看</a>
+                            <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
+                        </script>
+                    </div>
+                </form>
+            </fieldset>
         </div>
     </div>
 </div>

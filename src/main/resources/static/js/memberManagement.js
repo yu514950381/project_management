@@ -48,6 +48,10 @@ layui.use('table', function(){
                 obj.del();
                 layer.close(index);
             });
+        }else if(obj.event === 'point'){
+            alert("指派任务");
+        }else if(obj.event === 'viewDetail'){
+            alert("查看详情");
         }
         else if(obj.event === 'setMission'){
             layer.prompt({
