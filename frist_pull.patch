@@ -1,0 +1,16 @@
+Index: src/main/java/com/feima/project_management/controller/test.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/feima/project_management/controller/test.java	(date 1515323694000)
++++ src/main/java/com/feima/project_management/controller/test.java	(revision )
+@@ -7,7 +7,7 @@
+ @RequestMapping("/test1")
+ public class test {
+ 
+-    @RequestMapping("/test2")
++    @RequestMapping("/test")
+     public String hello(){
+         return "index";
+     }
