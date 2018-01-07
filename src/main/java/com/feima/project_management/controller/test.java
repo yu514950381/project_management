@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/jump")
 public class test {
 
-    @RequestMapping("/test2")
+    @RequestMapping("/test")
     public String hello(){
         return "index";
     }
