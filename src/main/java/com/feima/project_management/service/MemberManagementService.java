@@ -7,6 +7,13 @@ import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author 喻世琦
+ * 项目成员管理的测试Server类
+ * 之后会将正式的功能上传到本类中
+ * */
+
+
 @Service("/memberManagementService")
 public class MemberManagementService {
 

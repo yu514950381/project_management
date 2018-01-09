@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>动态记录一览</title>
+    <meta charset="UTF-8"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/normalize/7.0.0/normalize.min.css"/>
+    <link rel="stylesheet" th:href="@{/layui-v2.2.5/layui/css/layui.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <script th:src="@{/layui-v2.2.5/layui/layui.js}"></script>
+    <style>
+        .hisMa_body_header{
+            width:100%;
+            height:70px;
+            line-height:70px;
+        }
+
+        .hisMa_body_header .layui-inline{
+            margin-right: 110px;
+        }
+
+    </style>
+</head>
+<body class="layui-layout-body" style="background-color: white">
+<div class="layui-layout layui-layout-admin">
+    <!--头部导航栏-->
+    <div class="layui-header" th:include="headMenue">
+    </div>
+    <!--侧导航栏-->
+    <div class="layui-side layui-bg-black" th:include="leftMenue">
+    </div>
+    <!--正文部分-->
+    <div class="layui-body" style="background-color: white;">
+        <div class="layui-main">
+            <fieldset class="layui-elem-field site-demo-button" style="margin-top: 30px;">
+                <legend>历史操作记录</legend>
+                <div style="padding:15px;">
+                    <form class="layui-form" action="">
+                        <div class="hisMa_body_header">
+                            <div style="float:left;">
+                                <div class="layui-inline">
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="name" class="layui-input" placeholder="姓名"/>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <div class="layui-input-inline">
+                                        <select name="Time">
+                                            <option selected="selected"></option>
+                                            <option value="0" >今天</option>
+                                            <option value="1" >昨天</option>
+                                            <option value="2" >前天</option>
+                                            <option value="3" >本周</option>
+                                            <option value="4" >上周</option>
+                                            <option value="5" >本月</option>
+                                            <option value="6" >上月</option>
+                                         </select>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <div class="layui-input-inline">
+                                        <select name="operation">
+                                            <option selected="selected"></option>
+                                            <option value="0" >登录系统</option>
+                                            <option value="1" >退出系统</option>
+                                            <option value="2" >创建</option>
+                                            <option value="3" >完成</option>
+                                            <option value="4" >修改</option>
+                                            <option value="5" >删除</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-inline">
+                                    <div class="layui-input-inline">
+                                        <select name="TargetKind">
+                                            <option selected="selected"></option>
+                                            <option value="0" >任务</option>
+                                            <option value="1" >项目</option>
+                                            <option value="2" >文档</option>
+                                            <option value="3" >成员</option>
+                                            <option value="4" >用户</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="float: right">
+                                <button class="layui-btn" data-method="search">搜索</button>
+                            </div>
+                        </div>
+                    </form>
+                    <table class="layui-table" lay-data="{url:'/historyCtrl/showAll', page:true, id:'idTest',method:'post'}" lay-filter="demo">
+                        <thead>
+                        <tr>
+                            <th lay-data="{field:'Time', width:250, fixed: true ,sort: true}">日期</th>
+                            <th lay-data="{field:'UserId', width:150}">操作者</th>
+                            <th lay-data="{field:'Action', width:200}">动作</th>
+                            <th lay-data="{field:'TargetKind',  width:250}">对象类型</th>
+                            <th lay-data="{field:'Target' }">对象具体内容</th>
+                        </tr>
+                        </thead>
+                    </table>
+
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+
+    layui.use('table', function() {
+        var table = layui.table;
+    });
+
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+
+</script>
+</html>

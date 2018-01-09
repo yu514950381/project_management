@@ -8,12 +8,12 @@ import java.util.Map;
 
 /**
  * @author 喻世琦
- * 项目成员管理的测试dao类
+ * 项目动态记录的测试dao类
  * 之后会将正式的功能上传到本类中
  * */
 
-@Repository("/memberManagementMapper")
-public interface MemberManagementMapper {
+@Repository("/historyMapper")
+public interface HistoryMapper {
 
     List<Map> testSelect();
 

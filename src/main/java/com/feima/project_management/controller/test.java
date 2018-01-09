@@ -11,7 +11,10 @@ public class test {
     public String hello(){
         return "index";
     }
-
+    @RequestMapping("/historyManagement")
+    public String historyManagement(){
+        return "history_management";
+    }
     @RequestMapping("/memberManagement")
     public String memberManagement(){
         return "member_management";
