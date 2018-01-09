@@ -93,6 +93,18 @@ body{
   height:70px;
   line-height:70px;
 }
+.memMa_mainContext{
+  padding:20px;
+}
+.memMa_mainInfo{
+  padding:30px 0 0 10px;
+}
+.memMa_mainInfo .layui-form-label{
+  text-align: left;
+}
+.memMa_mainInfo input{
+  border:none;
+}
 .memMa_projectName{
   float: left;
   font-size: 30px;
@@ -101,6 +113,7 @@ body{
   padding:35px;
   padding-bottom:0px;
 }
+
 /*项目管理样式*/
 #barDemo a .layui-btn .layui-btn-primary .layui-btn-xs{
   width:36px;

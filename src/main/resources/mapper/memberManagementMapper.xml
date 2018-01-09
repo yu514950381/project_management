@@ -4,11 +4,11 @@
 <mapper namespace="com.feima.project_management.dao.MemberManagementMapper">
 
     <select id="testSelect" resultType="map">
-        SELECT * FROM memberManagement limit 10
+        SELECT * FROM user limit 10
     </select>
 
     <insert id="testInsert" parameterType="Map">
-        INSERT into memberManagement(username,position,mission,remark) VALUES(#{username},#{position},#{mission},#{remark})
+        INSERT into user VALUES(#{id},#{LoginName},#{Password},#{Username},#{Truename},#{Tel},#{QQ},#{Email},#{Sex},#{Img})
     </insert>
 
 </mapper>
