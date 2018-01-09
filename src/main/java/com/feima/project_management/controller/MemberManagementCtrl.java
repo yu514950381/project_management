@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author 喻世琦
@@ -30,15 +32,21 @@ public class MemberManagementCtrl {
         String result  = JSONTool.JsonToLayui(this.MemberManagementService.selectAll());
         return result;
     }
-//    给数据库填充大量数据方便进行测试使用
+    //给数据库填充大量数据方便进行测试使用
 //    @RequestMapping("/infoInsert")
 //    public ModelAndView infoInsert(ModelAndView mv){
 //        for(int i = 1;i<1000;i++){
 //            Map<String,Object> student = new HashMap<>();
-//            student.put("username","姓名"+i);
-//            student.put("position","职务"+i);
-//            student.put("mission","任务"+i);
-//            student.put("remark","备注"+i);
+//            student.put("id","id"+i);
+//            student.put("LoginName","登录名"+i);
+//            student.put("Password","密码"+i);
+//            student.put("Username","用户名"+i);
+//            student.put("Truename","真实姓名"+i);
+//            student.put("Tel",i);
+//            student.put("QQ",i);
+//            student.put("Email","邮箱"+i);
+//            student.put("Sex","性别"+i);
+//            student.put("Img","头像"+i);
 //            this.MemberManagementService.testInsert(student);
 //        }
 //        mv.setViewName("index");
