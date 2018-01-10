@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : localhost_3306
 Source Server Version : 50027
 Source Host           : localhost:3306
-Source Database       : managementtest
+Source Database       : kdpm
 
 Target Server Type    : MYSQL
 Target Server Version : 50027
 File Encoding         : 65001
 
-Date: 2018-01-10 10:23:00
+Date: 2018-01-10 21:16:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,12 +20,12 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `dict`;
 CREATE TABLE `dict` (
-  `id` varchar(32) NOT NULL,
-  `dict_column` varchar(255) NOT NULL,
-  `dict_key` varchar(255) NOT NULL,
-  `dict_value` varchar(255) NOT NULL,
-  `sort` bigint(20) NOT NULL,
-  PRIMARY KEY  (`id`)
+  `Id` varchar(32) NOT NULL,
+  `Dict_Column` varchar(255) NOT NULL,
+  `Dict_Key` varchar(255) NOT NULL,
+  `Dict_Value` varchar(255) NOT NULL,
+  `Sort` bigint(20) NOT NULL,
+  PRIMARY KEY  (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -57,10 +57,10 @@ INSERT INTO `dict` VALUES ('9Y', 'OPERATION', '0', '登录系统', '10');
 DROP TABLE IF EXISTS `history`;
 CREATE TABLE `history` (
   `Id` varchar(32) NOT NULL,
-  `UserId` varchar(32) NOT NULL,
-  `ProjectId` varchar(32) NOT NULL,
-  `Action` varchar(255) NOT NULL,
-  `TargetKind` varchar(255) NOT NULL,
+  `User_Id` varchar(32) NOT NULL,
+  `Project_Id` varchar(32) NOT NULL,
+  `User_Action` varchar(255) NOT NULL,
+  `Target_Kind` varchar(255) NOT NULL,
   `Target` varchar(255) NOT NULL,
   `Time` datetime NOT NULL,
   PRIMARY KEY  (`Id`)
@@ -76,17 +76,17 @@ INSERT INTO `history` VALUES ('001', '002', '003', '004', '005', '006', '2018-01
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` varchar(32) NOT NULL,
-  `LoginName` varchar(255) NOT NULL,
-  `Password` varchar(255) NOT NULL,
-  `Username` varchar(255) NOT NULL,
-  `Truename` varchar(255) NOT NULL,
-  `Tel` bigint(20) default NULL,
-  `QQ` bigint(20) default NULL,
-  `Email` varchar(255) default NULL,
-  `Sex` varchar(255) NOT NULL,
-  `Img` varchar(255) default NULL,
-  PRIMARY KEY  (`id`)
+  `Id` varchar(32) NOT NULL,
+  `Login_Name` varchar(255) NOT NULL,
+  `User_Password` varchar(255) NOT NULL,
+  `User_Name` varchar(255) NOT NULL,
+  `True_Name` varchar(255) NOT NULL,
+  `User_Tel` bigint(20) default NULL,
+  `User_QQ` bigint(20) default NULL,
+  `User_Email` varchar(255) default NULL,
+  `User_Sex` varchar(255) NOT NULL,
+  `User_Img` varchar(255) default NULL,
+  PRIMARY KEY  (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -1093,20 +1093,21 @@ INSERT INTO `user` VALUES ('id998', '登录名998', '密码998', '用户名998',
 INSERT INTO `user` VALUES ('id999', '登录名999', '密码999', '用户名999', '真实姓名999', '999', '999', '邮箱999', '性别999', '头像999');
 
 -- ----------------------------
--- Table structure for `userinproject`
+-- Table structure for `userproject`
 -- ----------------------------
-DROP TABLE IF EXISTS `userinproject`;
-CREATE TABLE `userinproject` (
+DROP TABLE IF EXISTS `userproject`;
+CREATE TABLE `userproject` (
   `Id` varchar(32) NOT NULL,
-  `UserId` varchar(32) NOT NULL,
-  `ProjectId` varchar(32) NOT NULL,
-  `Number` int(11) NOT NULL,
-  `JoinTime` datetime NOT NULL,
-  `LastTime` datetime NOT NULL,
-  `VisitTime` int(11) NOT NULL,
+  `User_Id` varchar(32) NOT NULL,
+  `Project_Id` varchar(32) NOT NULL,
+  `User_Number` int(11) NOT NULL,
+  `Join_Time` datetime NOT NULL,
+  `Last_Time` datetime NOT NULL,
+  `Visit_Time` int(11) NOT NULL,
+  `User_Root` varchar(255) NOT NULL,
   PRIMARY KEY  (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of userinproject
+-- Records of userproject
 -- ----------------------------

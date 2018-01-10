@@ -119,8 +119,11 @@ var Str1='<form class="layui-form" action="">\n' +
     '</form>';
 
 //table里面的操作栏对应的方法
-layui.use('table', function(){
+layui.use(['table','layer'], function(){
     var table = layui.table;
+    var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+
+
     //监听工具条
     table.on('tool(demo)', function(obj){
         var data = obj.data;
@@ -153,13 +156,7 @@ layui.use('table', function(){
         }
     });
 
-});
-
-layui.use('layer', function(){ //独立版的layer无需执行这一句
-
-    var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
-
-    //触发事件
+    //添加成员
     var active = {
         notice: function(){
             //示范一个公告层

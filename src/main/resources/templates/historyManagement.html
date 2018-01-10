@@ -103,9 +103,9 @@
                         <thead>
                         <tr>
                             <th lay-data="{field:'Time', width:250, fixed: true ,sort: true}">日期</th>
-                            <th lay-data="{field:'UserId', width:150}">操作者</th>
-                            <th lay-data="{field:'Action', width:200}">动作</th>
-                            <th lay-data="{field:'TargetKind',  width:250}">对象类型</th>
+                            <th lay-data="{field:'User_Id', width:150}">操作者</th>
+                            <th lay-data="{field:'User_Action', width:200}">动作</th>
+                            <th lay-data="{field:'Target_Kind',  width:250}">对象类型</th>
                             <th lay-data="{field:'Target' }">对象具体内容</th>
                         </tr>
                         </thead>
@@ -119,11 +119,8 @@
 </body>
 <script>
 
-    layui.use('table', function() {
+    layui.use(['table','element'], function() {
         var table = layui.table;
-    });
-
-    layui.use('element', function(){
         var element = layui.element;
     });
 
