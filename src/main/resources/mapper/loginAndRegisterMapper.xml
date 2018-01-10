@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="com.feima.project_management.dao.LoginAndRegisterMapper">
+
+    <!--登录时需要的对登录名及密码的确认-->
+    <select id="loginSelect" resultType="map" parameterType="String">
+        SELECT User_Password FROM user WHERE Login_Name=#{Login_Name}
+    </select>
+
+
+</mapper>
