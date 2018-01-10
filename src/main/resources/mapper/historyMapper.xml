@@ -7,8 +7,5 @@
         SELECT * FROM history limit 10
     </select>
 
-    <insert id="testInsert" parameterType="Map">
-        INSERT into user VALUES(#{id},#{LoginName},#{Password},#{Username},#{Truename},#{Tel},#{QQ},#{Email},#{Sex},#{Img})
-    </insert>
 
 </mapper>
