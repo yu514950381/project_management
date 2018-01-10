@@ -13,11 +13,11 @@ public class test {
     }
     @RequestMapping("/historyManagement")
     public String historyManagement(){
-        return "history_management";
+        return "historyManagement";
     }
     @RequestMapping("/memberManagement")
     public String memberManagement(){
-        return "member_management";
+        return "memberManagement";
     }
     @RequestMapping("/projectManagement")
     public String projectManagement(){
