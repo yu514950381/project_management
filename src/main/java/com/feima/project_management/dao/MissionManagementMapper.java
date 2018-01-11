@@ -11,4 +11,6 @@ public interface MissionManagementMapper {
     void missionDeleteByPrimaryKey(Integer missionId);
 
     void missionupdata(Mission mission);
+
+
 }
