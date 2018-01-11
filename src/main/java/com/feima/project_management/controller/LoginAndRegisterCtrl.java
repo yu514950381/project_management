@@ -4,6 +4,7 @@ package com.feima.project_management.controller;
 import com.feima.project_management.service.LoginAndRegisterService;
 import com.feima.project_management.util.PasswordScurity;
 import com.feima.project_management.util.RequestTool;
+import com.feima.project_management.util.Util;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,6 +61,10 @@ public class LoginAndRegisterCtrl {
         try {
             if(user!=null){
                 resultMap.put("errorCode",-1);//如果返回值不为空，则表示已经存在该用户，返回错误代码-1
+            }else{
+                String password = PasswordScurity.scurity(req.getParameter("password"));
+                req.getSession().setAttribute("loginname",loginname);
+                req.getSession().setAttribute("password",password);
             }
             rep.getWriter().write(resultMap.toString());//将错误代码以json的格式传回前台
         } catch (Exception e) {
@@ -71,23 +76,24 @@ public class LoginAndRegisterCtrl {
     @RequestMapping("/toComplete")
     public ModelAndView toComplete(HttpServletRequest req,ModelAndView mv){
         mv.setViewName("otherInfo");
-        String loginname = req.getParameter("loginname");
-        String password = PasswordScurity.scurity(req.getParameter("password"));
-        req.getSession().setAttribute("loginname",loginname);
-        req.getSession().setAttribute("password",password);
         return mv;
     }
 
     //完善全部信息
     @RequestMapping("/start")
     public ModelAndView start(HttpServletRequest req,ModelAndView mv){
-        mv.setViewName("missionManagement");
+        mv.setViewName("memberManagement");
         String loginname = (String) req.getSession().getAttribute("loginname");
-        String password =(String) req.getSession().getAttribute("password");
+        String password =(String) req.getSession().getAttribute("password");//从session获取用户名和密码以方便新增
         Map user = RequestTool.getParameterMap(req);
-        user.put("loginname",loginname);
-        user.put("password",password);
-        this.loginAndRegisterService.addUser(user);
+        user.put("Login_Name",loginname);
+        user.put("User_Password",password);
+        user.put("Id",UUID.randomUUID().toString().replaceAll("-",""));//使用uuid赋值给id
+        if("".equals(user.get("User_Img").toString())){//如果用户没有自己定义头像，则定为默认头像
+            user.put("User_Img", Util.NORIMAG);
+        }
+        this.loginAndRegisterService.addUser(user);//执行新增操作
+        req.getSession().removeAttribute("User_Password");//从session中清楚password保证安全
         return mv;
     }
 
