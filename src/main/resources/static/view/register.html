@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../css/main.css"/>
   <title>用户注册界面</title>
   <script src="../layui-v2.2.5/layui/layui.js"></script>
+  <script src="../js/jquery-1.10.1.js"></script>
 </head>
 <body>
   <div class="re_main">
@@ -21,11 +22,11 @@
         <h2>飞马科技</h2>
       </div>
       <div class="re_nav">
-        <form th:action="@{/sysUserCtr/doRegister}" th:object="${user}" method="post" th:method="post" class="layui-form">
+        <form form action="" class="layui-form" id="f">
           <div class="layui-form-item">
             <label class="layui-form-label">登&nbsp;录&nbsp;名:</label>
             <div class="layui-input-inline">
-              <input name="loginname" lay-verify="required|loginname" placeholder="4~20位字符" autocomplete="off" class="layui-input" type="text"/>
+              <input name="loginname" lay-verify="required|loginname" placeholder="4~20位数字，字母或下划线" autocomplete="off" class="layui-input" type="text" onkeyup="this.value=this.value.replace(/[^0-9\a-z\A-Z\_]/g,'')"/>
             </div>
           </div>
           <div class="layui-form-item">
@@ -42,7 +43,7 @@
           </div>
           <div class="layui-form-item">
             <div class="layui-input-block">
-              <button class="layui-btn" lay-submit="" lay-filter="demo1" type="submit" >提交</button>
+              <button class="layui-btn" lay-submit="" lay-filter="demo1" type="submit" id="demo1">提交</button>
             </div>
           </div>
         </form>
@@ -69,13 +70,11 @@
                           return '该用户已经存在';
                       }
                   }
-
               }
               ,password: function(value) {
                   if(value.length<6 || value.length>12){
                       return "长度必须为6~12";
                   }
-
               }
               ,confirm:function (value) {
                  if(value!=$("#pwd").val()){
@@ -95,7 +94,7 @@
                   {
                       flag=msg.errorCode;
                       if(flag==0){
-                          location.href="/jump/memberManagement";
+                          location.href="/loginAndRegisterCtrl/toComplete";
                       }else{
                           $("#demo1").click();
                       }

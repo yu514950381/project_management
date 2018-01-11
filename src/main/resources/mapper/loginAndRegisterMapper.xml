@@ -4,12 +4,12 @@
 <mapper namespace="com.feima.project_management.dao.LoginAndRegisterMapper">
 
     <!--登录和注册时需要的对登录名及密码的确认-->
-    <select id="Select" resultType="map" parameterType="String">
+    <select id="select" resultType="map" parameterType="String">
         SELECT User_Password FROM user WHERE Login_Name=#{Login_Name}
     </select>
 
     <insert id="addUser" parameterType="map">
-        INSERT into user VALUES(#{Id},#{Login_Name},#{User_Password},#{User_Name},#{True_Name},#{User_Tel},#{User_QQ},#{User_Email},#{User_Sex},#{User_Img})
+        INSERT into user VALUES(#{User_Id},#{Login_Name},#{User_Password},#{User_Name},#{True_Name},#{User_Tel},#{User_QQ},#{User_Email},#{User_Sex},#{User_Img})
     </insert>
 
 </mapper>
