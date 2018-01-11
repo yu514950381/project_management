@@ -12,6 +12,7 @@ import java.util.Map;
 @Repository("/loginAndRegisterMapper")
 public interface LoginAndRegisterMapper {
 
-    Map loginSelect(String loginName);
+     Map select(String loginName);
 
+    void addUser(Map map);
 }

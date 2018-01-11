@@ -21,7 +21,11 @@ public class LoginAndRegisterService {
     private LoginAndRegisterMapper loginAndRegisterMapper;
 
     public Map select(String loginName){
-        return this.loginAndRegisterMapper.loginSelect(loginName);
+        return this.loginAndRegisterMapper.select(loginName);
+    }
+
+    public void addUser(Map map){
+        this.loginAndRegisterMapper.addUser(map);
     }
 
 

@@ -19,6 +19,10 @@ public class test {
     public String memberManagement(){
         return "memberManagement";
     }
+    @RequestMapping("/otherInfo")
+    public String otherInfo(){
+        return "otherInfo";
+    }
     @RequestMapping("/projectManagement")
     public String projectManagement(){
         return "project_management";
