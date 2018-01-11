@@ -7,8 +7,5 @@
         SELECT * FROM user limit 10
     </select>
 
-    <insert id="testInsert" parameterType="Map">
-        c
-    </insert>
 
 </mapper>

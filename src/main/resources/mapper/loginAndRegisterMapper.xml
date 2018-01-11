@@ -9,7 +9,7 @@
     </select>
 
     <insert id="addUser" parameterType="map">
-        INSERT into user VALUES(#{Id},#{Login_Name},#{User_Password},#{User_Name},#{True_Name},#{User_Tel},#{User_QQ},#{User_Email},#{User_Sex},#{User_Img})
+        INSERT into user VALUES(#{User_Id},#{Login_Name},#{User_Password},#{User_Name},#{True_Name},#{User_Tel},#{User_QQ},#{User_Email},#{User_Sex},#{User_Img})
     </insert>
 
 </mapper>

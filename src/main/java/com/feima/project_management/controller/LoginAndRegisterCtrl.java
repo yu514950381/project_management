@@ -88,7 +88,7 @@ public class LoginAndRegisterCtrl {
         Map user = RequestTool.getParameterMap(req);
         user.put("Login_Name",loginname);
         user.put("User_Password",password);
-        user.put("Id",UUID.randomUUID().toString().replaceAll("-",""));//使用uuid赋值给id
+        user.put("User_Id",UUID.randomUUID().toString().replaceAll("-",""));//使用uuid赋值给id
         if("".equals(user.get("User_Img").toString())){//如果用户没有自己定义头像，则定为默认头像
             user.put("User_Img", Util.NORIMAG);
         }

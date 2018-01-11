@@ -43,7 +43,7 @@
           </div>
           <div class="layui-form-item">
             <div class="layui-input-block">
-              <button class="layui-btn" lay-submit="" lay-filter="demo1" type="submit" >提交</button>
+              <button class="layui-btn" lay-submit="" lay-filter="demo1" type="submit" id="demo1">提交</button>
             </div>
           </div>
         </form>
@@ -70,13 +70,11 @@
                           return '该用户已经存在';
                       }
                   }
-
               }
               ,password: function(value) {
                   if(value.length<6 || value.length>12){
                       return "长度必须为6~12";
                   }
-
               }
               ,confirm:function (value) {
                  if(value!=$("#pwd").val()){
