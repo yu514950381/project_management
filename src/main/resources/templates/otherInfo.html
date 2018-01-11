@@ -9,6 +9,7 @@
     <link rel="stylesheet" th:href="@{/layui-v2.2.5/layui/css/layui.css}" media="all"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <script th:src="@{/layui-v2.2.5/layui/layui.js}"></script>
+    <script th:src="@{/js/jquery-1.10.1.js}"></script>
     <title>完善信息</title>
     <style>
 
@@ -31,42 +32,43 @@
         <h2 id="re_title">请继续完善个人信息</h2>
     </div>
     <div class="oI_body">
-        <form class="layui-form" action="">
+        <form class="layui-form" action="/loginAndRegisterCtrl/start">
+            <input  hidden="hidden" name="img" id="img"/>
             <div class="layui-form-item">
                 <label class="layui-form-label">用户名</label>
                 <div class="layui-input-block">
-                    <input type="text" name="username" lay-verify="required|username" placeholder="5~20位昵称" autocomplete="off" class="layui-input">
+                    <input type="text" name="username" lay-verify="required|username" placeholder="5~20位昵称" autocomplete="off" class="layui-input"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">真实姓名</label>
                 <div class="layui-input-block">
-                    <input type="text" name="truename" lay-verify="required" placeholder="真实姓名" autocomplete="off" class="layui-input">
+                    <input type="text" name="truename" lay-verify="required" placeholder="真实姓名" autocomplete="off" class="layui-input"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">联系方式</label>
                 <div class="layui-input-block">
-                    <input type="text" name="tel" lay-verify="required|phone" placeholder="联系方式" autocomplete="off" class="layui-input">
+                    <input type="text" name="tel" lay-verify="required|phone" placeholder="联系方式" autocomplete="off" class="layui-input"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">QQ</label>
                 <div class="layui-input-block">
-                    <input type="text" name="QQ" lay-verify="required" placeholder="QQ" autocomplete="off" class="layui-input">
+                    <input type="text" name="QQ" lay-verify="required" placeholder="QQ" autocomplete="off" class="layui-input"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">邮箱</label>
                 <div class="layui-input-block">
-                    <input type="text" name="email" lay-verify="email" placeholder="邮箱" autocomplete="off" class="layui-input">
+                    <input type="text" name="email" lay-verify="required|email" placeholder="邮箱" autocomplete="off" class="layui-input"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">性别</label>
                 <div class="layui-input-block">
-                    <input type="radio" name="sex" value="男" title="男" checked="">
-                    <input type="radio" name="sex" value="女" title="女">
+                    <input type="radio" name="sex" value="男" title="男" checked=""/>
+                    <input type="radio" name="sex" value="女" title="女"/>
                 </div>
             </div>
             <div class="layui-form-item">
@@ -74,6 +76,7 @@
                 <div class="layui-upload">
                     <button type="button" class="layui-btn layui-btn-sm layui-btn-normal" id="choose">选择文件</button>
                     <button type="button" class="layui-btn layui-btn-sm" id="submit">开始上传</button>
+                    <span style="color:green" id="status"></span>
                 </div>
             </div>
             <div class="layui-form-item">
@@ -85,8 +88,8 @@
         </form>
     </div>
     <div class="re_down">
-        <h2>@版权所用飞马科技</h2></div>
-</div>
+        <h2>@版权所用飞马科技</h2>
+    </div>
 </div>
 <script>
     layui.use(['form','upload'], function(){
@@ -96,9 +99,11 @@
         //自定义验证规则
         form.verify({
             username: function(value){
-                if(value.length < 4){
+                /*<![CDATA[*/
+                if(value.length<4){
                     return '用户名至少得4个字符啊';
                 }else if(value.length>20){
+                /*]]>*/
                     return '用户名不能超过二十';
                 }
             }
@@ -110,12 +115,14 @@
         //选完文件后不自动上传
         upload.render({
             elem: '#choose'
-            ,url: '/upload/'
+            ,url: '/upload/image'
             ,auto: false
             //,multiple: true
             ,bindAction: '#submit'
             ,done: function(res){
-                console.log(res)
+//                console.log(res)
+                $("#status").html("成功");
+                $("#img").val(res.path);
             }
         });
 
