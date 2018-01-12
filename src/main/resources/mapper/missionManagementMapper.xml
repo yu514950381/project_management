@@ -4,4 +4,8 @@
     <insert id="missionInsert" parameterType="Mission" >
 
     </insert>
+    <select id="missionselect">
+      SELECT * from mission limit 15
+    </select>
+
 </mapper>
