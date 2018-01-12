@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50027
 File Encoding         : 65001
 
-Date: 2018-01-12 15:46:10
+Date: 2018-01-12 21:47:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -176,6 +176,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+INSERT INTO `user` VALUES ('2f853e3e3ebf454d953adb0b5ae23fa8', 'yushiqi123456', '126A2004181498545AEC0D0B7B2992BF', 'yu1shi4qi7', '喻世琦', '13544668877', '123456987', '46558795@qq.com', '男', '#');
 INSERT INTO `user` VALUES ('a', 'a', 'b', 'a', 'a', '21', '21', 'qq', 'qq', 'qq');
 INSERT INTO `user` VALUES ('c58c1a02376b421e9a7ee17b12ff4100', 'yushiqi', '6C7853904788FC7CB4B08AE90F226EDC', 'yushiqi123', '喻世琦', '13555446688', '544654655', '54654654@qq.com', '男', '#');
 INSERT INTO `user` VALUES ('id1', '登录名1', '密码1', '用户名1', '真实姓名1', '1', '1', '邮箱1', '性别1', '头像1');
@@ -1211,3 +1212,39 @@ CREATE TABLE `userproject` (
 -- ----------------------------
 -- Records of userproject
 -- ----------------------------
+INSERT INTO `userproject` VALUES ('11Y', 'id623', '13L', '1202132', '2018-01-11 21:20:09', '1');
+INSERT INTO `userproject` VALUES ('12Y', 'id619', '2L', '6546254', '2018-01-22 21:29:35', '4');
+INSERT INTO `userproject` VALUES ('13Y', 'id615', '6L', '8744523', '2018-01-30 21:30:03', '3');
+INSERT INTO `userproject` VALUES ('14Y', 'id63', '1L', '745125', '2017-12-13 21:30:27', '1');
+INSERT INTO `userproject` VALUES ('15Y', 'id630', '8L', '8725423', '2016-06-23 21:31:01', '1');
+INSERT INTO `userproject` VALUES ('16Y', 'id625', '10L', '7485631', '2017-01-23 21:31:24', '4');
+INSERT INTO `userproject` VALUES ('17Y', 'id622', '2L', '2125132', '2016-12-21 21:32:00', '3');
+INSERT INTO `userproject` VALUES ('18Y', 'id620', '5L', '35446354', '2017-09-14 21:32:41', '4');
+INSERT INTO `userproject` VALUES ('19Y', 'id62', '3L', '6877634', '2016-10-11 21:33:22', '5');
+INSERT INTO `userproject` VALUES ('1Y', 'c58c1a02376b421e9a7ee17b12ff4100', '13L', '102132', '2018-01-11 21:20:09', '1');
+INSERT INTO `userproject` VALUES ('21Y', 'id920', '1L', '2132', '2018-01-11 21:20:09', '1');
+INSERT INTO `userproject` VALUES ('22Y', 'id922', '1L', '65454', '2018-01-22 21:29:35', '4');
+INSERT INTO `userproject` VALUES ('23Y', 'id928', '1L', '87423', '2018-01-30 21:30:03', '3');
+INSERT INTO `userproject` VALUES ('24Y', 'id930', '1L', '7425', '2017-11-13 21:30:27', '1');
+INSERT INTO `userproject` VALUES ('25Y', 'id932', '1L', '87423', '2016-04-23 21:31:01', '1');
+INSERT INTO `userproject` VALUES ('26Y', 'id933', '1L', '74631', '2017-05-23 21:31:24', '4');
+INSERT INTO `userproject` VALUES ('27Y', 'id919', '1L', '21132', '2016-10-21 21:32:00', '3');
+INSERT INTO `userproject` VALUES ('28Y', 'id92', '1L', '346354', '2017-01-14 21:32:41', '4');
+INSERT INTO `userproject` VALUES ('29Y', 'id917', '1L', '68634', '2016-12-11 21:33:22', '5');
+INSERT INTO `userproject` VALUES ('2Y', 'id102', '2L', '654654', '2018-01-22 21:29:35', '4');
+INSERT INTO `userproject` VALUES ('31Y', 'id720', '1L', '2132', '2018-01-11 21:20:09', '1');
+INSERT INTO `userproject` VALUES ('32Y', 'id722', '1L', '65454', '2018-01-22 21:29:35', '4');
+INSERT INTO `userproject` VALUES ('33Y', 'id728', '1L', '87423', '2018-01-30 21:30:03', '3');
+INSERT INTO `userproject` VALUES ('34Y', 'id730', '1L', '7425', '2017-11-13 21:30:27', '1');
+INSERT INTO `userproject` VALUES ('35Y', 'id732', '1L', '87423', '2016-04-23 21:31:01', '1');
+INSERT INTO `userproject` VALUES ('36Y', 'id733', '1L', '74631', '2017-05-23 21:31:24', '4');
+INSERT INTO `userproject` VALUES ('37Y', 'id719', '1L', '21132', '2016-10-21 21:32:00', '3');
+INSERT INTO `userproject` VALUES ('38Y', 'id72', '1L', '346354', '2017-01-14 21:32:41', '4');
+INSERT INTO `userproject` VALUES ('39Y', 'id717', '1L', '68634', '2016-12-11 21:33:22', '5');
+INSERT INTO `userproject` VALUES ('3Y', 'id108', '6L', '874523', '2018-01-30 21:30:03', '3');
+INSERT INTO `userproject` VALUES ('4Y', '2f853e3e3ebf454d953adb0b5ae23fa8', '1L', '74525', '2017-12-13 21:30:27', '1');
+INSERT INTO `userproject` VALUES ('5Y', 'id112', '8L', '875423', '2016-06-23 21:31:01', '1');
+INSERT INTO `userproject` VALUES ('6Y', 'id129', '10L', '785631', '2017-01-23 21:31:24', '4');
+INSERT INTO `userproject` VALUES ('7Y', 'id136', '2L', '212132', '2016-12-21 21:32:00', '3');
+INSERT INTO `userproject` VALUES ('8Y', 'id13', '5L', '3546354', '2017-09-14 21:32:41', '4');
+INSERT INTO `userproject` VALUES ('9Y', 'id134', '3L', '687634', '2016-10-11 21:33:22', '5');

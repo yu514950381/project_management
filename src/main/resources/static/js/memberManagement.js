@@ -108,11 +108,6 @@ var Str1='<form class="layui-form" action="">\n' +
     '                        </div>\n' +
     '                    </div>\n' +
     '                </div>\n' +
-    '                <div class="layui-form-item">\n' +
-    '                    <div class="layui-inline">\n' +
-    '                        <label class="layui-form-label">查看任务</label>\n' +
-    '                    </div>\n' +
-    '                </div>\n' +
     '            </div>\n' +
     '        </div>\n' +
     '    </div>\n' +
