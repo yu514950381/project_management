@@ -95,7 +95,17 @@ CREATE TABLE `mission` (
 -- ----------------------------
 INSERT INTO `mission` VALUES ('Lxxxx2018011101', '建立数据库', '无', 'xie', 'Lxxxx20180111001', 'Lxxxx', '2018-01-03 23:29:40', '2018-01-06 23:29:48', '');
 INSERT INTO `mission` VALUES ('Lxxxx2018011102', '建立表', '无', 'xie', 'Lxxxx20180111002', 'Lxxxx', '2018-01-04 23:32:49', '2018-01-07 23:32:55', '');
-INSERT INTO `mission` VALUES ('Lxxxx2018011103', '往表里插入数据', '无', 'xie', 'Lxxxx20180111003', 'Lxxxx', '2018-01-05 23:34:56', '2018-01-08 23:35:05', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011103', '插入数据', '无', 'xie', 'Lxxxx20180111003', 'Lxxxx', '2018-01-05 23:34:56', '2018-01-08 23:35:05', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011104', '维护数据库', '无', 'xie', 'Lxxxx20180111004', 'Lxxxx', '2018-01-06 23:29:40', '2018-01-09 23:29:48', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011105', '修改表', '无', 'xie', 'Lxxxx20180111005', 'Lxxxx', '2018-01-07 23:32:49', '2018-01-10 23:32:55', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011106', '插入数据', '无', 'xie', 'Lxxxx20180111006', 'Lxxxx', '2018-01-08 23:34:56', '2018-01-11 23:35:05', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011107', '维护数据库', '无', 'xie', 'Lxxxx20180111007', 'Lxxxx', '2018-01-09 23:29:40', '2018-01-12 23:29:48', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011108', '修正表', '无', 'xie', 'Lxxxx20180111008', 'Lxxxx', '2018-01-10 23:32:49', '2018-01-13 23:32:55', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011109', '插入数据', '无', 'xie', 'Lxxxx20180111009', 'Lxxxx', '2018-01-11 23:34:56', '2018-01-14 23:35:05', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011110', '删除数据库', '无', 'xie', 'Lxxxx20180111010', 'Lxxxx', '2018-01-12 23:29:40', '2018-01-15 23:29:48', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011112', '删除表', '无', 'xie', 'Lxxxx20180111012', 'Lxxxx', '2018-01-13 23:32:49', '2018-01-16 23:32:55', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011113', '跑路', '无', 'xie', 'Lxxxx20180111013', 'Lxxxx', '2018-01-14 23:34:56', '2018-01-17 23:35:05', '');
+
 
 -- ----------------------------
 -- Table structure for `project`
