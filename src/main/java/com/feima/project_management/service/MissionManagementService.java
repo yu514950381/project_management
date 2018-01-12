@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service("/missionManagementService")
-public class MisssionManagementService {
+public class MissionManagementService {
 
     @Resource(name="missionManagementMapper")
     private MissionManagementMapper missionManagementMapper;
@@ -27,7 +27,7 @@ public class MisssionManagementService {
         this.missionManagementMapper.missionUpdata(mission);
     }
 
-    public List<Map> missionselect(Map map){
+    public List<Map> missionSelect(){
         return this.missionManagementMapper.missionSelect();
     }
 
