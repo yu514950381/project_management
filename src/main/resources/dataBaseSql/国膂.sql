@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-01-11 23:35:53
+Date: 2018-01-12 15:45:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,13 +33,13 @@ CREATE TABLE `dict` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `historytable`
+-- Table structure for `history`
 -- ----------------------------
-DROP TABLE IF EXISTS `historytable`;
-CREATE TABLE `historytable` (
+DROP TABLE IF EXISTS `history`;
+CREATE TABLE `history` (
   `History_Id` varchar(32) NOT NULL,
   `User_Id` varchar(255) NOT NULL,
-  `Project_Id` varchar(255) NOT NULL,
+  `Project_Id` varchar(32) NOT NULL,
   `Target` varchar(255) NOT NULL,
   `Target_Kind` varchar(255) NOT NULL,
   `Visit_Time` int(11) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE `historytable` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of historytable
+-- Records of history
 -- ----------------------------
 
 -- ----------------------------
@@ -78,13 +78,14 @@ CREATE TABLE `menuable` (
 DROP TABLE IF EXISTS `mission`;
 CREATE TABLE `mission` (
   `Mission_Id` varchar(32) NOT NULL,
-  `Mission_Name` varchar(255) DEFAULT NULL,
-  `Mission_Details` varchar(255) DEFAULT NULL,
-  `Mission_Role` varchar(255) DEFAULT NULL,
-  `Mission_Number` varchar(255) DEFAULT NULL,
-  `Project_Id` varchar(32) DEFAULT NULL,
-  `Mission_Date_Begin` datetime DEFAULT NULL,
-  `Mission_Date_Over` datetime DEFAULT NULL,
+  `Mission_Name` varchar(255) NOT NULL,
+  `Mission_Details` text,
+  `Mission_Role` varchar(32) NOT NULL,
+  `Mission_Number` varchar(255) NOT NULL,
+  `Project_Id` varchar(32) NOT NULL,
+  `Mission_Date_Begin` datetime NOT NULL,
+  `Mission_Date_Over` datetime NOT NULL,
+  `Mission_State` varchar(255) NOT NULL,
   PRIMARY KEY (`Mission_Id`),
   KEY `Project_Id` (`Project_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -92,9 +93,9 @@ CREATE TABLE `mission` (
 -- ----------------------------
 -- Records of mission
 -- ----------------------------
-INSERT INTO `mission` VALUES ('Lxxxx2018011101', '建立数据库', '无', 'xie', 'Lxxxx20180111001', 'Lxxxx', '2018-01-03 23:29:40', '2018-01-06 23:29:48');
-INSERT INTO `mission` VALUES ('Lxxxx2018011102', '建立表', '无', 'xie', 'Lxxxx20180111002', 'Lxxxx', '2018-01-04 23:32:49', '2018-01-07 23:32:55');
-INSERT INTO `mission` VALUES ('Lxxxx2018011103', '往表里插入数据', '无', 'xie', 'Lxxxx20180111003', 'Lxxxx', '2018-01-05 23:34:56', '2018-01-08 23:35:05');
+INSERT INTO `mission` VALUES ('Lxxxx2018011101', '建立数据库', '无', 'xie', 'Lxxxx20180111001', 'Lxxxx', '2018-01-03 23:29:40', '2018-01-06 23:29:48', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011102', '建立表', '无', 'xie', 'Lxxxx20180111002', 'Lxxxx', '2018-01-04 23:32:49', '2018-01-07 23:32:55', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011103', '往表里插入数据', '无', 'xie', 'Lxxxx20180111003', 'Lxxxx', '2018-01-05 23:34:56', '2018-01-08 23:35:05', '');
 
 -- ----------------------------
 -- Table structure for `project`
@@ -117,25 +118,11 @@ CREATE TABLE `project` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `typetable`
--- ----------------------------
-DROP TABLE IF EXISTS `typetable`;
-CREATE TABLE `typetable` (
-  `Typle_Id` varchar(32) NOT NULL,
-  `Tyoe_Name` varchar(255) NOT NULL,
-  PRIMARY KEY (`Typle_Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of typetable
--- ----------------------------
-
--- ----------------------------
 -- Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `User_Id` varchar(255) NOT NULL,
+  `User_Id` varchar(32) NOT NULL,
   `User_Name` varchar(255) NOT NULL,
   `User_TrueName` varchar(255) NOT NULL,
   `User_Password` varchar(255) NOT NULL,
@@ -156,9 +143,10 @@ CREATE TABLE `user` (
 -- ----------------------------
 DROP TABLE IF EXISTS `usermission`;
 CREATE TABLE `usermission` (
-  `UserMission_Id` varchar(32) DEFAULT NULL,
-  `User_Id` varchar(255) DEFAULT NULL,
-  `Mission_Id` varchar(255) DEFAULT NULL
+  `UserMission_Id` varchar(32) NOT NULL,
+  `User_Id` varchar(32) NOT NULL,
+  `Mission_Id` varchar(32) NOT NULL,
+  PRIMARY KEY (`UserMission_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -171,7 +159,7 @@ CREATE TABLE `usermission` (
 DROP TABLE IF EXISTS `userproject`;
 CREATE TABLE `userproject` (
   `UserProject_Id` varchar(32) NOT NULL,
-  `User_Id` varchar(255) NOT NULL,
+  `User_Id` varchar(32) NOT NULL,
   `Project_Id` varchar(32) NOT NULL,
   `User_root` varchar(255) NOT NULL,
   `User_Number` varchar(255) NOT NULL,
