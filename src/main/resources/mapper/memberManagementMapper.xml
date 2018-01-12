@@ -7,11 +7,4 @@
         SELECT * FROM user limit 10
     </select>
 
-<<<<<<< HEAD
-    <insert id="testInsert" parameterType="Map">
-
-    </insert>
-=======
->>>>>>> origin/develop
-
 </mapper>

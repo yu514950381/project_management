@@ -47,7 +47,6 @@ public class LoginAndRegisterCtrl {
             }
             rep.getWriter().write(resultMap.toString());//将错误代码以json的格式传回前台
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -78,7 +77,6 @@ public class LoginAndRegisterCtrl {
         mv.setViewName("otherInfo");
         return mv;
     }
-
     //完善全部信息
     @RequestMapping("/start")
     public ModelAndView start(HttpServletRequest req,ModelAndView mv){

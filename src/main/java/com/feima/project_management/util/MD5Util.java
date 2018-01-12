@@ -41,12 +41,4 @@ public class MD5Util {
             return null;
         }
     }
-	public static void main(String[] args){
-		long s=System.currentTimeMillis();
-		for(int i=0;i<1000000;i++){
-			System.out.println(MD5("123456"));
-		}
-		long e=System.currentTimeMillis();
-		System.out.println(e-s);
-	}
 }

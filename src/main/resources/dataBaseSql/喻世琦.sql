@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50027
 File Encoding         : 65001
 
-Date: 2018-01-10 21:16:09
+Date: 2018-01-12 15:46:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,12 +20,12 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `dict`;
 CREATE TABLE `dict` (
-  `Id` varchar(32) NOT NULL,
+  `Dist_Id` varchar(32) NOT NULL,
   `Dict_Column` varchar(255) NOT NULL,
   `Dict_Key` varchar(255) NOT NULL,
   `Dict_Value` varchar(255) NOT NULL,
   `Sort` bigint(20) NOT NULL,
-  PRIMARY KEY  (`Id`)
+  PRIMARY KEY  (`Dist_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -41,12 +41,19 @@ INSERT INTO `dict` VALUES ('16Y', 'PURPOSE', '1', '项目', '20');
 INSERT INTO `dict` VALUES ('17Y', 'PURPOSE', '2', '文档', '30');
 INSERT INTO `dict` VALUES ('18Y', 'PURPOSE', '3', '成员', '40');
 INSERT INTO `dict` VALUES ('19Y', 'PURPOSE', '4', '用户', '50');
+INSERT INTO `dict` VALUES ('1L', 'PROJECTSTATE', '0', '未完成', '10');
 INSERT INTO `dict` VALUES ('1Y', 'LEVEL', '0', '管理员', '20');
+INSERT INTO `dict` VALUES ('2L', 'PROJECTSTATE', '1', '已完成', '20');
 INSERT INTO `dict` VALUES ('2Y', 'LEVEL', '1', '成员', '10');
+INSERT INTO `dict` VALUES ('3L', 'PROJECTSTATE', '2', '未开始', '30');
 INSERT INTO `dict` VALUES ('3Y', 'HISTORY', '0', '今天', '10');
+INSERT INTO `dict` VALUES ('4L', 'PROJECTSTATE', '3', '进行中', '40');
 INSERT INTO `dict` VALUES ('4Y', 'HISTORY', '1', '昨天', '20');
+INSERT INTO `dict` VALUES ('5L', 'PROJECTTYPE', '0', '长期项目', '10');
 INSERT INTO `dict` VALUES ('5Y', 'HISTORY', '2', '前天', '30');
+INSERT INTO `dict` VALUES ('6L', 'PROJECTTYPE', '1', '短期项目', '20');
 INSERT INTO `dict` VALUES ('6Y', 'HISTORY', '3', '本周', '40');
+INSERT INTO `dict` VALUES ('7L', 'PROJECTTYPE', '2', '维护项目', '30');
 INSERT INTO `dict` VALUES ('7Y', 'HISTORY', '4', '本月', '50');
 INSERT INTO `dict` VALUES ('8Y', 'HISTORY', '5', '上月', '60');
 INSERT INTO `dict` VALUES ('9Y', 'OPERATION', '0', '登录系统', '10');
@@ -56,14 +63,14 @@ INSERT INTO `dict` VALUES ('9Y', 'OPERATION', '0', '登录系统', '10');
 -- ----------------------------
 DROP TABLE IF EXISTS `history`;
 CREATE TABLE `history` (
-  `Id` varchar(32) NOT NULL,
+  `History_Id` varchar(32) NOT NULL,
   `User_Id` varchar(32) NOT NULL,
   `Project_Id` varchar(32) NOT NULL,
   `User_Action` varchar(255) NOT NULL,
   `Target_Kind` varchar(255) NOT NULL,
   `Target` varchar(255) NOT NULL,
   `Time` datetime NOT NULL,
-  PRIMARY KEY  (`Id`)
+  PRIMARY KEY  (`History_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -72,26 +79,105 @@ CREATE TABLE `history` (
 INSERT INTO `history` VALUES ('001', '002', '003', '004', '005', '006', '2018-01-10 23:29:10');
 
 -- ----------------------------
+-- Table structure for `menutable`
+-- ----------------------------
+DROP TABLE IF EXISTS `menutable`;
+CREATE TABLE `menutable` (
+  `menu_id` varchar(32) NOT NULL,
+  `menu_name` varchar(255) NOT NULL,
+  `menu_number` varchar(255) NOT NULL,
+  `menu_belong` varchar(255) NOT NULL,
+  `menu_sort` int(7) NOT NULL,
+  PRIMARY KEY  (`menu_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of menutable
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `mission`
+-- ----------------------------
+DROP TABLE IF EXISTS `mission`;
+CREATE TABLE `mission` (
+  `Mission_Id` varchar(32) NOT NULL,
+  `Mission_Name` varchar(255) NOT NULL,
+  `Mission_Details` varchar(255) NOT NULL,
+  `Mission_Role` varchar(255) NOT NULL,
+  `Mission_Number` varchar(255) NOT NULL,
+  `Project_Id` varchar(32) NOT NULL,
+  `Mission_Date_Begin` datetime NOT NULL,
+  `Mission_Date_Over` datetime NOT NULL,
+  `Mission_State` varchar(255) NOT NULL,
+  PRIMARY KEY  (`Mission_Id`),
+  KEY `Project_Id` (`Project_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of mission
+-- ----------------------------
+INSERT INTO `mission` VALUES ('Lxxxx2018011101', '建立数据库', '无', 'xie', 'Lxxxx20180111001', 'Lxxxx', '2018-01-03 23:29:40', '2018-01-06 23:29:48', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011102', '建立表', '无', 'xie', 'Lxxxx20180111002', 'Lxxxx', '2018-01-04 23:32:49', '2018-01-07 23:32:55', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011103', '往表里插入数据', '无', 'xie', 'Lxxxx20180111003', 'Lxxxx', '2018-01-05 23:34:56', '2018-01-08 23:35:05', '');
+
+-- ----------------------------
+-- Table structure for `project`
+-- ----------------------------
+DROP TABLE IF EXISTS `project`;
+CREATE TABLE `project` (
+  `Project_Id` varchar(32) NOT NULL,
+  `Project_Name` varchar(255) NOT NULL,
+  `Project_Type` varchar(255) NOT NULL,
+  `Project_Date_Begin` datetime NOT NULL,
+  `Project_Date_Over` datetime NOT NULL,
+  `Project_Working_Days` int(11) NOT NULL,
+  `Project_State` varchar(255) default NULL,
+  `Project_Describe` text,
+  PRIMARY KEY  (`Project_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of project
+-- ----------------------------
+INSERT INTO `project` VALUES ('10L', '飞马项目管理2a', '0', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '78', '1', '这是一个我们需要共同努力的项目');
+INSERT INTO `project` VALUES ('11L', '飞马项目管理dfa', '2', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '78', '2', '这是一个我们需要共同努力的项目');
+INSERT INTO `project` VALUES ('12L', '飞马项目管理as4', '1', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '32', '3', '这是一个我们需要共同努力的项目');
+INSERT INTO `project` VALUES ('13L', '飞马项目asd管理as5', '0', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '78', '1', '这是一个我们需要共同努力的项目');
+INSERT INTO `project` VALUES ('14L', '飞马项目管asd理6', '1', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '78', '0', '这是一个我们需要共同努力的项目');
+INSERT INTO `project` VALUES ('15L', '飞马项目管asd理7', '1', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '78', '1', '这是一个我们需要共同努力的项目');
+INSERT INTO `project` VALUES ('1L', '飞马项目管理', '2', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '78', '3', '这是一个我们需要共同努力的项目');
+INSERT INTO `project` VALUES ('2L', '飞马项目管理2', '1', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '78', '2', '这是一个我们需要共同努力的项目');
+INSERT INTO `project` VALUES ('3L', '飞马项目管理3', '0', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '78', '1', '这是一个我们需要共同努力的项目');
+INSERT INTO `project` VALUES ('4L', '飞马项目管理4', '1', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '78', '0', '这是一个我们需要共同努力的项目');
+INSERT INTO `project` VALUES ('5L', '飞马项目管理5', '2', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '78', '1', '这是一个我们需要共同努力的项目');
+INSERT INTO `project` VALUES ('6L', '飞马项目管理6', '1', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '78', '2', '这是一个我们需要共同努力的项目');
+INSERT INTO `project` VALUES ('7L', '飞马项目管理7', '2', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '78', '0', '这是一个我们需要共同努力的项目');
+INSERT INTO `project` VALUES ('8L', '飞马项目管理1', '1', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '78', '1', '这是一个我们需要共同努力的项目');
+INSERT INTO `project` VALUES ('9L', '飞马项目管理as', '1', '2017-11-29 21:06:37', '2018-01-15 21:06:53', '78', '0', '这是一个我们需要共同努力的项目');
+
+-- ----------------------------
 -- Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `Id` varchar(32) NOT NULL,
+  `User_Id` varchar(32) NOT NULL,
   `Login_Name` varchar(255) NOT NULL,
   `User_Password` varchar(255) NOT NULL,
   `User_Name` varchar(255) NOT NULL,
-  `True_Name` varchar(255) NOT NULL,
+  `User_TrueName` varchar(255) NOT NULL,
   `User_Tel` bigint(20) default NULL,
   `User_QQ` bigint(20) default NULL,
   `User_Email` varchar(255) default NULL,
   `User_Sex` varchar(255) NOT NULL,
   `User_Img` varchar(255) default NULL,
-  PRIMARY KEY  (`Id`)
+  PRIMARY KEY  (`User_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+INSERT INTO `user` VALUES ('a', 'a', 'b', 'a', 'a', '21', '21', 'qq', 'qq', 'qq');
+INSERT INTO `user` VALUES ('c58c1a02376b421e9a7ee17b12ff4100', 'yushiqi', '6C7853904788FC7CB4B08AE90F226EDC', 'yushiqi123', '喻世琦', '13555446688', '544654655', '54654654@qq.com', '男', '#');
 INSERT INTO `user` VALUES ('id1', '登录名1', '密码1', '用户名1', '真实姓名1', '1', '1', '邮箱1', '性别1', '头像1');
 INSERT INTO `user` VALUES ('id10', '登录名10', '密码10', '用户名10', '真实姓名10', '10', '10', '邮箱10', '性别10', '头像10');
 INSERT INTO `user` VALUES ('id100', '登录名100', '密码100', '用户名100', '真实姓名100', '100', '100', '邮箱100', '性别100', '头像100');
@@ -107,6 +193,7 @@ INSERT INTO `user` VALUES ('id109', '登录名109', '密码109', '用户名109',
 INSERT INTO `user` VALUES ('id11', '登录名11', '密码11', '用户名11', '真实姓名11', '11', '11', '邮箱11', '性别11', '头像11');
 INSERT INTO `user` VALUES ('id110', '登录名110', '密码110', '用户名110', '真实姓名110', '110', '110', '邮箱110', '性别110', '头像110');
 INSERT INTO `user` VALUES ('id111', '登录名111', '密码111', '用户名111', '真实姓名111', '111', '111', '邮箱111', '性别111', '头像111');
+INSERT INTO `user` VALUES ('id1111', '111111111', '222222222', '555', '555', '555', '555', '555', '555', '555');
 INSERT INTO `user` VALUES ('id112', '登录名112', '密码112', '用户名112', '真实姓名112', '112', '112', '邮箱112', '性别112', '头像112');
 INSERT INTO `user` VALUES ('id113', '登录名113', '密码113', '用户名113', '真实姓名113', '113', '113', '邮箱113', '性别113', '头像113');
 INSERT INTO `user` VALUES ('id114', '登录名114', '密码114', '用户名114', '真实姓名114', '114', '114', '邮箱114', '性别114', '头像114');
@@ -1093,19 +1180,32 @@ INSERT INTO `user` VALUES ('id998', '登录名998', '密码998', '用户名998',
 INSERT INTO `user` VALUES ('id999', '登录名999', '密码999', '用户名999', '真实姓名999', '999', '999', '邮箱999', '性别999', '头像999');
 
 -- ----------------------------
+-- Table structure for `usermission`
+-- ----------------------------
+DROP TABLE IF EXISTS `usermission`;
+CREATE TABLE `usermission` (
+  `UserMission_Id` varchar(32) NOT NULL default '',
+  `User_Id` varchar(255) NOT NULL,
+  `Mission_Id` varchar(255) NOT NULL,
+  PRIMARY KEY  (`UserMission_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of usermission
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `userproject`
 -- ----------------------------
 DROP TABLE IF EXISTS `userproject`;
 CREATE TABLE `userproject` (
-  `Id` varchar(32) NOT NULL,
+  `UserProject_Id` varchar(32) NOT NULL,
   `User_Id` varchar(32) NOT NULL,
   `Project_Id` varchar(32) NOT NULL,
   `User_Number` int(11) NOT NULL,
-  `Join_Time` datetime NOT NULL,
-  `Last_Time` datetime NOT NULL,
-  `Visit_Time` int(11) NOT NULL,
-  `User_Root` varchar(255) NOT NULL,
-  PRIMARY KEY  (`Id`)
+  `User_JoinTime` datetime NOT NULL,
+  `Project_VisitTime` int(11) NOT NULL,
+  PRIMARY KEY  (`UserProject_Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------

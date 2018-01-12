@@ -7,11 +7,18 @@
   <link rel="stylesheet" href="http://cdn.bootcss.com/normalize/7.0.0/normalize.min.css"/>
   <link rel="stylesheet" href="../layui-v2.2.5/layui/css/layui.css">
   <link rel="stylesheet" href="../css/main.css"/>
-  <link rel="stylesheet" href="../css/verificationCode.css">
+  <link rel="stylesheet" href="../css/drag.css">
   <script src="../layui-v2.2.5/layui/layui.js"></script>
-  <script src="../js/verificationCode.js"></script>
-  <title>用户登录界面</title>
   <script src="../js/jquery-1.10.1.js"></script>
+  <script src="../js/jquery-1.7.2.min.js"></script>
+  <script src="../js/drag.js"></script>
+  <title>用户登录界面</title>
+  <style>
+    #dragContainer{
+
+    }
+
+  </style>
 </head>
 <body>
   <div class="re_main">
@@ -41,9 +48,7 @@
             <label class="layui-form-label">验&nbsp;证&nbsp;码:</label>
             <div class="layui-input-inline">
               <div id="dragContainer">
-                <div id="dragBg"></div>
-                <div id="dragText"></div>
-                <div id="dragHandler" class="dragHandlerBg"></div>
+                <div id="drag"></div>
               </div>
             </div>
           </div>
@@ -62,6 +67,9 @@
   </div>
   <script src="../layui-v2.2.5/layui/layui.js"></script>
   <script>
+
+      $('#drag').drag();
+
       layui.use('form', function(){
           var flag = 0;
           var form = layui.form;
@@ -91,7 +99,7 @@
                   success:function(msg)
                   {
                       flag=msg.errorCode;
-                      if(flag==0){
+                      if(flag==0 && $(".drag_text").html()=="验证通过"){
                           location.href="/jump/memberManagement";
                       }else{
                           $("#demo1").click();
