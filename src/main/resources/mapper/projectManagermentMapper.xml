@@ -4,7 +4,11 @@
 <mapper namespace="com.feima.project_management.dao.ProjectManagementMapper">
 
     <select id="selectProjectAll" resultType="map">
-        SELECT * FROM project limit 10
+select p.Project_Id id,p.Project_Name name,f1.Dict_Value type,date_format(p.Project_Date_Over,'%Y-%c-%d') over,p.Project_Working_Days days,f2.Dict_Value state
+from project p,(select Dict_Key,Dict_Value from dict d where Dict_Column = 'PROJECTTYPE') f1,
+(select Dict_Key,Dict_Value from dict d where Dict_Column = 'PROJECTSTATE') f2 where f1.Dict_Key = p.Project_Type and f2.Dict_Key = p.Project_State limit 10;
+
+
     </select>
     <!-->条件查询<-->
     <select id="selectProject" resultType="map">
@@ -30,4 +34,9 @@
     <delete id="deleteProject" parameterType="com.feima.project_management.model.Project">
         DELETE  from project where
     </delete>
+
+    <update id="updateProject" parameterType="com.feima.project_management.model.project">
+
+
+    </update>
 </mapper>

@@ -25,6 +25,7 @@ public class ProjectManagementCtrl {
         String result = JSONTool.JsonToLayui(projectManagementService.selectProjectAll());
         return result;
     }
+    //-------------------------------添加项目-------------------------------
     //添加项目入口
     @RequestMapping("/addProject")
     public String addProject(Map<String,Project> map){
@@ -32,6 +33,7 @@ public class ProjectManagementCtrl {
         map.put("project",p);
         return "add_project";
     }
+
     /*
     执行添加项目管理操作
      */
@@ -39,6 +41,24 @@ public class ProjectManagementCtrl {
     public String doAddProject(@ModelAttribute("project") Project project){
         project.setProject_Id(UUID.randomUUID().toString().replaceAll("-",""));
         projectManagementService.insertProject(project);
-        return "/projectManagementCtrl/addProject";
+        return "projectmanagement";
     }
+    //---------------------------编辑项目---------------------------------
+    //编辑项目入口
+    @RequestMapping("/updateProject")
+    public String updateProject(Map<String,Project> map){
+        Project p = new Project();
+        map.put("project",p);
+        return "updateProject";
+    }
+    /*
+    执行编辑项目操作
+     */
+    @RequestMapping(value = "/doUpdateProject",method = RequestMethod.POST)
+    public String doUpdateProject(@ModelAttribute("project") Project project){
+        project.setProject_Id(UUID.randomUUID().toString().replaceAll("-",""));
+        projectManagementService.updateProject(project);
+        return "projectmanagement";
+    }
+
 }
