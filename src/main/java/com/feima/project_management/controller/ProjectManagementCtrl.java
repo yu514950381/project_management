@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.UUID;
 
 
 @Controller
@@ -36,7 +37,8 @@ public class ProjectManagementCtrl {
      */
     @RequestMapping(value = "/doAddProject",method = RequestMethod.POST)
     public String doAddProject(@ModelAttribute("project") Project project){
+        project.setProject_Id(UUID.randomUUID().toString().replaceAll("-",""));
         projectManagementService.insertProject(project);
-        return "add_project";
+        return "/projectManagementCtrl/addProject";
     }
 }

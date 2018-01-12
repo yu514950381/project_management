@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>项目成员管理</title>
+    <meta charset="UTF-8"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/normalize/7.0.0/normalize.min.css"/>
+    <link rel="stylesheet" th:href="@{/layui-v2.2.5/layui/css/layui.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <script th:src="@{/layui-v2.2.5/layui/layui.js}"></script>
+    <script th:src="@{/js/memberManagement.js}"></script>
+</head>
+<body class="layui-layout-body" style="background-color: white">
+<div class="layui-layout layui-layout-admin">
+    <!--头部导航栏-->
+    <div class="layui-header" th:include="headMenue">
+    </div>
+    <!--侧导航栏-->
+    <div class="layui-side layui-bg-black" th:include="leftMenue">
+    </div>
+    <!--正文部分-->
+    <div class="layui-body">
+        <div style="padding:25px">
+            <div class="memMa_body_header">
+                <h2 class="memMa_projectName">添加项目</h2>
+            </div>
+        </div>
+        <div style="padding: 15px">
+            <form class="layui-form" th:action="@{/projectManagementCtrl/doAddProject}" th:object="${project}" th:method="post" method="post"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+                <div class="layui-form-item">
+                    <label class="layui-form-label">项目名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input" th:field="*{Project_Name}"/>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">开始日期</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" id="test1" th:field="*{Project_Date_Begin}"/>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">结束日期</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" id="test2" th:field="*{Project_Date_Over}"/>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">可用工作日</label>
+                    <div class="layui-input-block">
+                        <input type="text" name=""  autocomplete="off" class="layui-input" th:field="*{Project_Working_Days}"/>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">项目类型</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="sex" value="0" title="长期项目" checked=""  th:field="*{Project_Type}"/>
+                        <input type="radio" name="sex" value="1" title="短期项目" th:field="*{Project_Type}"/>
+                        <input type="radio" name="sex" value="2" title="维护项目" th:field="*{Project_Type}"/>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">项目描述</label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="请输入内容" class="layui-textarea" th:field="*{Project_Describe}"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit="" lay-filter="*" type="submit">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+                <!-- 更多表单结构排版请移步文档左侧【页面元素-表单】一项阅览 -->
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //各种基于事件的操作，下面会有进一步介绍
+    });
+</script>
+
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test1'//指定元素
+
+        });
+    });
+</script>
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test2'//指定元素
+
+        });
+    });
+</script>
+<script>
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#test3'//指定元素
+
+        });
+    });
+</script>
+</body>
+</html>

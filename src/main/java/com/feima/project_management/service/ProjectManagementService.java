@@ -12,7 +12,7 @@ import java.util.Map;
 @Service("/projectManagementService")
 public class ProjectManagementService {
 
-    @Autowired
+    @Resource(name="/projectManagementMapper")
     private ProjectManagementMapper projectManagementMapper;
 
     public List<Map> selectProjectAll(){

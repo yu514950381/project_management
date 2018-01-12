@@ -23,8 +23,8 @@
     </select>
     <!-->插入操作<-->
     <insert id="insertProject" parameterType="com.feima.project_management.model.Project">
-        INSERT into project
-        VALUES(#{Project_Id}#{Project_Name},#{Project_Type},#{Project_Date_Begin},#{Project_Date_Over},#{Project_Working_Days},#{Project_State},#{Project_Describe})
+        INSERT into project(Project_Id,Project_Name,Project_Type,Project_Date_Begin,Project_Date_Over,Project_Working_Days,Project_Describe)
+        VALUES(#{Project_Id},#{Project_Name},#{Project_Type},#{Project_Date_Begin},#{Project_Date_Over},#{Project_Working_Days},#{Project_Describe})
     </insert>
 
     <delete id="deleteProject" parameterType="com.feima.project_management.model.Project">
