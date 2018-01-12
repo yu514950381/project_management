@@ -17,6 +17,5 @@ public interface HistoryMapper {
 
     List<Map> testSelect();
 
-    void testInsert(Map map);
 
 }
