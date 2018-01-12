@@ -33,7 +33,7 @@ public class test {
     }
     @RequestMapping("/missionManagement")
     public String missionManagement() {
-        return "/missionManagementCtrl";
+        return "missionManagement";
     }
 }
 
