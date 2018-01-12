@@ -26,4 +26,16 @@ public interface ProjectManagementMapper {
      * @param p
      */
     void insertProject(Project p);
+
+    /**
+     * 删除数据
+     * @param p
+     */
+    void deleteProject(Project p);
+
+    /**
+     * 修改数据
+     * @param p
+     */
+    void updateProject(Project p);
 }

@@ -3,87 +3,76 @@ package com.feima.project_management.model;
 import java.util.Date;
 
 public class Project {
-    private Integer id;
-    private String name;
-    private String attribute;
-    private String startTime;
-    private String endTime;
-    private String status;
-    private String joinTime;
-    private String role;
-    private String remark;
+    private String Project_Id;
+    private String Project_Name;
+    private String Project_Type;
+    private String Project_Date_Begin;
+    private String Project_Date_Over;
+    private String Project_Working_Days;
+    private String Project_State;
+    private String Project_Describe;
 
-
-
-    public Integer getId() {
-        return id;
+    public String getProject_Id() {
+        return Project_Id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setProject_Id(String project_Id) {
+        Project_Id = project_Id;
     }
 
-    public String getName() {
-        return name;
+    public String getProject_Name() {
+        return Project_Name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProject_Name(String project_Name) {
+        Project_Name = project_Name;
     }
 
-    public String getAttribute() {
-        return attribute;
+    public String getProject_Type() {
+        return Project_Type;
     }
 
-    public void setAttribute(String attribute) {
-        this.attribute = attribute;
+    public void setProject_Type(String project_Type) {
+        Project_Type = project_Type;
     }
 
-    public String getStartTime() {
-        return startTime;
+    public String getProject_Date_Begin() {
+        return Project_Date_Begin;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    public void setProject_Date_Begin(String project_Date_Begin) {
+        Project_Date_Begin = project_Date_Begin;
     }
 
-    public String getEndTime() {
-        return endTime;
+    public String getProject_Date_Over() {
+        return Project_Date_Over;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    public void setProject_Date_Over(String project_Date_Over) {
+        Project_Date_Over = project_Date_Over;
     }
 
-    public String getStatus() {
-        return status;
+    public String getProject_Working_Days() {
+        return Project_Working_Days;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setProject_Working_Days(String project_Working_Days) {
+        Project_Working_Days = project_Working_Days;
     }
 
-    public String getJoinTime() {
-        return joinTime;
+    public String getProject_State() {
+        return Project_State;
     }
 
-    public void setJoinTime(String joinTime) {
-        this.joinTime = joinTime;
+    public void setProject_State(String project_State) {
+        Project_State = project_State;
     }
 
-    public String getRole() {
-        return role;
+    public String getProject_Describe() {
+        return Project_Describe;
     }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setProject_Describe(String project_Describe) {
+        Project_Describe = project_Describe;
     }
 }

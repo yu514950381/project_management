@@ -25,7 +25,7 @@ public class test {
     }
     @RequestMapping("/projectManagement")
     public String projectManagement(){
-        return "project_management";
+        return "projectmanagement";
     }
     @RequestMapping("/addProject")
     public String addProject(){

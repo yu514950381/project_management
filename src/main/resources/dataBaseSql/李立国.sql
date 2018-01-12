@@ -19,7 +19,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- Table structure for `dict`
 -- ----------------------------
 DROP TABLE IF EXISTS `dict`;
-CREATE TABLE `dict` (
+                     CREATE TABLE `dict` (
   `Dict_Id` varchar(32) NOT NULL,
   `Dict_Column` varchar(255) NOT NULL,
   `Dict_Key` varchar(255) NOT NULL,
