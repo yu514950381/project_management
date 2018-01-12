@@ -24,11 +24,11 @@ public class MisssionManagementService {
     }
 
     public void missionUpdata(Mission mission){
-        this.missionManagementMapper.missionupdata(mission);
+        this.missionManagementMapper.missionUpdata(mission);
     }
 
     public List<Map> missionselect(Map map){
-        return this.missionManagementMapper.missionselect();
+        return this.missionManagementMapper.missionSelect();
     }
 
     
