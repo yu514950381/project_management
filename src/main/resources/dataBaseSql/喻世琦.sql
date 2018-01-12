@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50027
 File Encoding         : 65001
 
-Date: 2018-01-12 21:47:15
+Date: 2018-01-12 22:15:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -76,7 +76,7 @@ CREATE TABLE `history` (
 -- ----------------------------
 -- Records of history
 -- ----------------------------
-INSERT INTO `history` VALUES ('001', '002', '003', '004', '005', '006', '2018-01-10 23:29:10');
+INSERT INTO `history` VALUES ('1Y', 'id63', '003', '1', '3', '006', '2018-01-10 23:29:10');
 
 -- ----------------------------
 -- Table structure for `menutable`
@@ -116,9 +116,30 @@ CREATE TABLE `mission` (
 -- ----------------------------
 -- Records of mission
 -- ----------------------------
-INSERT INTO `mission` VALUES ('Lxxxx2018011101', '建立数据库', '无', 'xie', 'Lxxxx20180111001', 'Lxxxx', '2018-01-03 23:29:40', '2018-01-06 23:29:48', '');
-INSERT INTO `mission` VALUES ('Lxxxx2018011102', '建立表', '无', 'xie', 'Lxxxx20180111002', 'Lxxxx', '2018-01-04 23:32:49', '2018-01-07 23:32:55', '');
-INSERT INTO `mission` VALUES ('Lxxxx2018011103', '往表里插入数据', '无', 'xie', 'Lxxxx20180111003', 'Lxxxx', '2018-01-05 23:34:56', '2018-01-08 23:35:05', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011101', '建立数据库', '无', 'xie', 'Lxxxx20180111001', '1L', '2018-01-03 23:29:40', '2018-01-06 23:29:48', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011102', '建立表', '无', 'xie', 'Lxxxx20180111002', '1L', '2018-01-04 23:32:49', '2018-01-07 23:32:55', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011103', '往表里插入数据', '无', 'xie', 'Lxxxx20180111003', '1L', '2018-01-05 23:34:56', '2018-01-08 23:35:05', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011104', '维护数据库', '无', 'xie', 'Lxxxx20180111004', '1L', '2018-01-06 23:29:40', '2018-01-09 23:29:48', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011105', '修改表', '无', 'xie', 'Lxxxx20180111005', '1L', '2018-01-07 23:32:49', '2018-01-10 23:32:55', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011106', '插入数据', '无', 'xie', 'Lxxxx20180111006', '1L', '2018-01-08 23:34:56', '2018-01-11 23:35:05', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011107', '维护数据库', '无', 'xie', 'Lxxxx20180111007', '1L', '2018-01-09 23:29:40', '2018-01-12 23:29:48', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011108', '修正表', '无', 'xie', 'Lxxxx20180111008', '1L', '2018-01-10 23:32:49', '2018-01-13 23:32:55', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011109', '插入数据', '无', 'xie', 'Lxxxx20180111009', '1L', '2018-01-11 23:34:56', '2018-01-14 23:35:05', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011110', '删除数据库', '无', 'xie', 'Lxxxx20180111010', '1L', '2018-01-12 23:29:40', '2018-01-15 23:29:48', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011112', '删除表', '无', 'xie', 'Lxxxx20180111012', '1L', '2018-01-13 23:32:49', '2018-01-16 23:32:55', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011113', '跑路', '无', 'xie', 'Lxxxx20180111013', '1L', '2018-01-14 23:34:56', '2018-01-17 23:35:05', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011121', '建立数据库', '无', 'xie', 'Lxxxx20180111001', '2L', '2018-01-03 23:29:40', '2018-01-06 23:29:48', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011122', '建立表', '无', 'xie', 'Lxxxx20180111002', '2L', '2018-01-04 23:32:49', '2018-01-07 23:32:55', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011123', '往表里插入数据', '无', 'xie', 'Lxxxx20180111003', '2L', '2018-01-05 23:34:56', '2018-01-08 23:35:05', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011124', '维护数据库', '无', 'xie', 'Lxxxx20180111004', '2L', '2018-01-06 23:29:40', '2018-01-09 23:29:48', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011125', '修改表', '无', 'xie', 'Lxxxx20180111005', '2L', '2018-01-07 23:32:49', '2018-01-10 23:32:55', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011126', '插入数据', '无', 'xie', 'Lxxxx20180111006', '2L', '2018-01-08 23:34:56', '2018-01-11 23:35:05', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011127', '维护数据库', '无', 'xie', 'Lxxxx20180111007', '2L', '2018-01-09 23:29:40', '2018-01-12 23:29:48', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011128', '修正表', '无', 'xie', 'Lxxxx20180111008', '2L', '2018-01-10 23:32:49', '2018-01-13 23:32:55', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011129', '插入数据', '无', 'xie', 'Lxxxx20180111009', '2L', '2018-01-11 23:34:56', '2018-01-14 23:35:05', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011130', '删除数据库', '无', 'xie', 'Lxxxx20180111010', '2L', '2018-01-12 23:29:40', '2018-01-15 23:29:48', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011132', '删除表', '无', 'xie', 'Lxxxx20180111012', '2L', '2018-01-13 23:32:49', '2018-01-16 23:32:55', '');
+INSERT INTO `mission` VALUES ('Lxxxx2018011133', '跑路', '无', 'xie', 'Lxxxx20180111013', '2L', '2018-01-14 23:34:56', '2018-01-17 23:35:05', '');
 
 -- ----------------------------
 -- Table structure for `project`
@@ -1194,6 +1215,42 @@ CREATE TABLE `usermission` (
 -- ----------------------------
 -- Records of usermission
 -- ----------------------------
+INSERT INTO `usermission` VALUES ('11Y', 'id623', 'Lxxxx2018011112');
+INSERT INTO `usermission` VALUES ('12Y', 'id920', 'Lxxxx2018011112');
+INSERT INTO `usermission` VALUES ('13Y', 'id732', 'Lxxxx2018011112');
+INSERT INTO `usermission` VALUES ('14Y', 'id728', 'Lxxxx2018011112');
+INSERT INTO `usermission` VALUES ('15Y', 'id72', 'Lxxxx2018011107');
+INSERT INTO `usermission` VALUES ('16Y', 'id917', 'Lxxxx2018011107');
+INSERT INTO `usermission` VALUES ('17Y', 'id922', 'Lxxxx2018011107');
+INSERT INTO `usermission` VALUES ('18Y', 'id928', 'Lxxxx2018011107');
+INSERT INTO `usermission` VALUES ('19Y', 'id919', 'Lxxxx2018011107');
+INSERT INTO `usermission` VALUES ('1Y', 'id623', 'Lxxxx2018011109');
+INSERT INTO `usermission` VALUES ('21Y', 'id623', 'Lxxxx2018011106');
+INSERT INTO `usermission` VALUES ('22Y', 'id920', 'Lxxxx2018011106');
+INSERT INTO `usermission` VALUES ('23Y', 'id732', 'Lxxxx2018011106');
+INSERT INTO `usermission` VALUES ('24Y', 'id728', 'Lxxxx2018011106');
+INSERT INTO `usermission` VALUES ('25Y', 'id72', 'Lxxxx2018011106');
+INSERT INTO `usermission` VALUES ('26Y', 'id917', 'Lxxxx2018011106');
+INSERT INTO `usermission` VALUES ('27Y', 'id922', 'Lxxxx2018011106');
+INSERT INTO `usermission` VALUES ('28Y', 'id928', 'Lxxxx2018011106');
+INSERT INTO `usermission` VALUES ('29Y', 'id919', 'Lxxxx2018011106');
+INSERT INTO `usermission` VALUES ('2Y', 'id920', 'Lxxxx2018011105');
+INSERT INTO `usermission` VALUES ('31Y', 'id623', 'Lxxxx2018011105');
+INSERT INTO `usermission` VALUES ('32Y', 'id920', 'Lxxxx2018011105');
+INSERT INTO `usermission` VALUES ('33Y', 'id732', 'Lxxxx2018011105');
+INSERT INTO `usermission` VALUES ('34Y', 'id728', 'Lxxxx2018011105');
+INSERT INTO `usermission` VALUES ('35Y', 'id72', 'Lxxxx2018011101');
+INSERT INTO `usermission` VALUES ('36Y', 'id917', 'Lxxxx2018011101');
+INSERT INTO `usermission` VALUES ('37Y', 'id922', 'Lxxxx2018011101');
+INSERT INTO `usermission` VALUES ('38Y', 'id928', 'Lxxxx2018011101');
+INSERT INTO `usermission` VALUES ('39Y', 'id919', 'Lxxxx2018011101');
+INSERT INTO `usermission` VALUES ('3Y', 'id732', 'Lxxxx2018011101');
+INSERT INTO `usermission` VALUES ('4Y', 'id728', 'Lxxxx2018011105');
+INSERT INTO `usermission` VALUES ('5Y', 'id72', 'Lxxxx2018011113');
+INSERT INTO `usermission` VALUES ('6Y', 'id917', 'Lxxxx2018011104');
+INSERT INTO `usermission` VALUES ('7Y', 'id922', 'Lxxxx2018011107');
+INSERT INTO `usermission` VALUES ('8Y', 'id928', 'Lxxxx2018011108');
+INSERT INTO `usermission` VALUES ('9Y', 'id919', 'Lxxxx2018011103');
 
 -- ----------------------------
 -- Table structure for `userproject`
