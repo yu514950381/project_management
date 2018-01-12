@@ -54,7 +54,7 @@
           </div>
           <div class="layui-form-item">
             <div class="layui-input-block">
-              <button class="layui-btn" lay-submit="" lay-filter="demo1" type="submit" id="demo1">登录</button>
+              <button class="layui-btn layui-btn-disabled" disabled="disabled" lay-submit="" lay-filter="demo1" type="submit" id="demo1">登录</button>
             </div>
           </div>
         </form>
@@ -67,10 +67,16 @@
   </div>
   <script src="../layui-v2.2.5/layui/layui.js"></script>
   <script>
-
-      $('#drag').drag();
-
       layui.use('form', function(){
+
+          $('#drag').drag();
+          $("#drag").mouseout(function(){
+              if($(".drag_text").html()=="验证通过"){
+                  $("#demo1").removeClass('layui-btn-disabled');
+                  $("#drag").css("border","none");
+                  $("#demo1").removeAttr("disabled");
+              }
+          });
           var flag = 0;
           var form = layui.form;
           //自定义验证规则
@@ -99,10 +105,15 @@
                   success:function(msg)
                   {
                       flag=msg.errorCode;
-                      if(flag==0 && $(".drag_text").html()=="验证通过"){
-                          location.href="/jump/memberManagement";
-                      }else{
-                          $("#demo1").click();
+                      if($(".drag_text").html()!="验证通过"){
+                          $("#drag").css("border","red 1px solid");
+                      }
+                      else {
+                          if(flag==0){
+                              location.href="/jump/memberManagement";
+                          }else{
+                              $("#demo1").click();
+                          }
                       }
                   },
                   error:function()

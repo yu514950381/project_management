@@ -40,7 +40,7 @@ public class LoginAndRegisterCtrl {
             if(user==null){//用户不存在的情况
                 resultMap.put("errorCode",-1);
             }else{
-                String password=req.getParameter("password");
+                String password=PasswordScurity.scurity(req.getParameter("password"));
                 if(!password.equals(user.get("User_Password"))){//密码错误
                     resultMap.put("errorCode",1);
                 }
