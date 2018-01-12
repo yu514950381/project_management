@@ -12,4 +12,5 @@
         INSERT into user VALUES(#{User_Id},#{Login_Name},#{User_Password},#{User_Name},#{User_TrueName},#{User_Tel},#{User_QQ},#{User_Email},#{User_Sex},#{User_Img})
     </insert>
 
+
 </mapper>
