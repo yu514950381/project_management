@@ -13,7 +13,7 @@ public interface MissionManagementMapper {
 
     void missionDeleteByPrimaryKey(Integer missionId);
 
-    void missionupdata(Mission mission);
+    void missionUpdata(Mission mission);
 
-    List<Map> missionselect();
+    List<Map> missionSelect();
 }
