@@ -43,6 +43,7 @@
                 <legend>项目编辑</legend>
                 <div style="padding: 15px">
                     <form class="layui-form" th:action="@{/projectManagementCtrl/doUpdateProject}" th:object="${project}" th:method="post" method="post"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+                        <input type="text" th:field ="*{Project_Id}" th:value="*{project_Id}"/>
                         <div class="layui-form-item">
                             <label class="layui-form-label">项目名称</label>
                             <div class="layui-input-block">
@@ -92,10 +93,10 @@
                             <div class="layui-input-block">
                                 <select name="interest" lay-filter="aihao">
                                     <option value=""></option>
-                                    <option value="0" th:field="*{}">张三</option>
-                                    <option value="1" selected="" th:field="*{}">李四</option>
-                                    <option value="2" th:field="*{}">王五</option>
-                                    <option value="3" th:field="*{}">赵六</option>
+                                    <option value="0" >张三</option>
+                                    <option value="1" selected="" >李四</option>
+                                    <option value="2" >王五</option>
+                                    <option value="3" >赵六</option>
                                 </select>
                             </div>
                         </div>
