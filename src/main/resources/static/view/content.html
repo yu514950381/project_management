@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+     >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/normalize/7.0.0/normalize.min.css"/>
+    <link rel="stylesheet" href="../layui-v2.2.5/layui/css/layui.css">
+    <link rel="stylesheet" href="../css/main.css"/>
+    <script src="../layui-v2.2.5/layui/layui.js"></script>
+    <style>
+        .memMa_mainContext{
+            padding:20px;
+        }
+        .memMa_mainInfo{
+            padding:30px 0 0 10px;
+        }
+        .memMa_mainInfo .layui-form-label{
+            text-align: left;
+        }
+        .memMa_mainInfo input{
+            border:none;
+        }
+    </style>
+    <script src="../js/memberManagement.js"></script>
+</head>
+<body>
+<form class="layui-form" action="">
+    <div style="margin:150px  auto;width:400px;height:auto;background-color: white">
+        <div class="memMa_mainContext">
+            <legend>成员详情</legend>
+            <div class="memMa_mainInfo">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">编号</label>
+                        <div class="layui-input-inline">
+                            <input name="number" autocomplete="off" class="layui-input" type="text" value="15021321"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">用户名</label>
+                        <div class="layui-input-inline">
+                            <input name="username" autocomplete="off" class="layui-input" type="text" value="aasd"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">真实姓名</label>
+                        <div class="layui-input-inline">
+                            <input name="truename" autocomplete="off" class="layui-input" type="text" value="AASD"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">性别</label>
+                        <div class="layui-input-inline">
+                            <input name="sex" autocomplete="off" class="layui-input" type="text" value="男"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">QQ</label>
+                        <div class="layui-input-inline">
+                            <input name="QQ" autocomplete="off" class="layui-input" type="text" value="4659965484"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">邮箱</label>
+                        <div class="layui-input-inline">
+                            <input name="email" autocomplete="off" class="layui-input" type="text" value="55556@233.com"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">联系方式</label>
+                        <div class="layui-input-inline">
+                            <input name="tel" autocomplete="off" class="layui-input" type="text" value="杨国安"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">权限</label>
+                        <div class="layui-input-inline">
+                            <select name="level" lay-filter="level">
+                                <option value="0" selected="">管理员</option>
+                                <option value="1" >成员</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

@@ -5,7 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/jump")
-public class test {
+public class Test {
+
+    public String test = "testString";
 
     @RequestMapping("/test")
     public String hello(){
