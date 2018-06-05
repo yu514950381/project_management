@@ -15,8 +15,7 @@ import java.util.Map;
 @Repository("/memberManagementMapper")
 public interface MemberManagementMapper {
 
-    List<Map> testSelect();
+    List<Map> initSelect(Map map);
 
-    void testInsert(Map map);
 
 }

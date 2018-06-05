@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,39 +27,17 @@ import java.util.Map;
 public class MemberManagementCtrl {
 
     @Resource(name = "/memberManagementService")
-    private MemberManagementService MemberManagementService;
+    private MemberManagementService memberManagementService;
 
-    @RequestMapping("/showAll")
-    public String showAll() throws JsonProcessingException {
-        String result  = JSONTool.JsonToLayui(this.MemberManagementService.selectAll());
-        return result;
-    }
-    //给数据库填充大量数据方便进行测试使用
-//    @RequestMapping("/infoInsert")
-//    public ModelAndView infoInsert(ModelAndView mv){
-//        for(int i = 1;i<1000;i++){
-//            Map<String,Object> student = new HashMap<>();
-//            student.put("id","id"+i);
-//            student.put("LoginName","登录名"+i);
-//            student.put("Password","密码"+i);
-//            student.put("Username","用户名"+i);
-//            student.put("Truename","真实姓名"+i);
-//            student.put("Tel",i);
-//            student.put("QQ",i);
-//            student.put("Email","邮箱"+i);
-//            student.put("Sex","性别"+i);
-//            student.put("Img","头像"+i);
-//            this.MemberManagementService.testInsert(student);
-//        }
-//        mv.setViewName("index");
-//        return mv;
-//
-//    }
-
-    @RequestMapping("/test1")
-    public ModelAndView test(ModelAndView mv){
-        mv.setViewName("test1");
+    @RequestMapping("/init")
+    public ModelAndView init(ModelAndView mv, HttpServletRequest req){
+        String Project_Id = req.getParameter("projectId");
+        String User_Id = req.getSession().getAttribute("User_Id").toString();
+        Map param = new HashMap();
+        param.put("Project_Id",Project_Id);
+        List<Map> result = this.memberManagementService.initSelect(param);
         return mv;
+
     }
 
 }

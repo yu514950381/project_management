@@ -3,8 +3,8 @@
 <!-- namespace必须指向Dao接口 -->
 <mapper namespace="com.feima.project_management.dao.MemberManagementMapper">
 
-    <select id="testSelect" resultType="map">
-        SELECT * FROM user limit 10
+    <select id="initSelect" resultType="map" parameterType="map">
+        SELECT  * FROM  userproject
     </select>
 
 </mapper>

@@ -20,6 +20,7 @@ import java.util.UUID;
 /**
  * @author 喻世琦
  * 登录注册的controller层
+ * 登录注册完毕之后，跳进主页面时需要放进session的内容包括User_Id,User_name和User_Img
  * */
 
 
@@ -45,11 +46,25 @@ public class LoginAndRegisterCtrl {
                     resultMap.put("errorCode",1);
                 }
             }
+            if((int)resultMap.get("errorCode")==0){//如果执行到这里错误代码都为0的话证明登录有效，则将用户Id,用户名,头像放入session
+                req.getSession().setAttribute("User_Id",user.get("User_Id"));
+                req.getSession().setAttribute("User_Name",user.get("User_Name"));
+                req.getSession().setAttribute("User_Img",user.get("User_Img"));
+            }
             rep.getWriter().write(resultMap.toString());//将错误代码以json的格式传回前台
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    //前往用户管理，目前为止暂时还没有出首页
+    @RequestMapping("/tomemberManagement")
+    public ModelAndView tomemberManagement(ModelAndView mv){
+
+        mv.setViewName("redirect:/memberManagementCtrl/init?projectId=1L");//用于测试，暂时先将项目Id设为数据库中数据最多的1L
+        return mv;
+    }
+
     //初步注册
     @RequestMapping("/register")
     public void register(HttpServletRequest req, HttpServletResponse rep) throws JSONException {
@@ -83,15 +98,20 @@ public class LoginAndRegisterCtrl {
         mv.setViewName("memberManagement");
         String loginname = (String) req.getSession().getAttribute("loginname");
         String password =(String) req.getSession().getAttribute("password");//从session获取用户名和密码以方便新增
+        String User_Id = UUID.randomUUID().toString().replaceAll("-","");
         Map user = RequestTool.getParameterMap(req);
         user.put("Login_Name",loginname);
         user.put("User_Password",password);
-        user.put("User_Id",UUID.randomUUID().toString().replaceAll("-",""));//使用uuid赋值给id
+        user.put("User_Id",User_Id);//使用uuid赋值给id
         if("".equals(user.get("User_Img").toString())){//如果用户没有自己定义头像，则定为默认头像
             user.put("User_Img", Util.NORIMAG);
         }
         this.loginAndRegisterService.addUser(user);//执行新增操作
-        req.getSession().removeAttribute("User_Password");//从session中清楚password保证安全
+        req.getSession().removeAttribute("password");//从session中清楚password保证安全
+        req.getSession().removeAttribute("loginname");//从session中清楚password保证安全
+        req.getSession().setAttribute("User_Id",User_Id);
+        req.getSession().setAttribute("User_Img",user.get("User_Img"));
+        req.getSession().setAttribute("User_Img",user.get("User_Name"));
         return mv;
     }
 

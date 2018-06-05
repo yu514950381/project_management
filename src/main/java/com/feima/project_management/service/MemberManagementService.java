@@ -18,14 +18,10 @@ import java.util.Map;
 public class MemberManagementService {
 
     @Resource(name="/memberManagementMapper")
-    private MemberManagementMapper MemberManagementMapper;
+    private MemberManagementMapper memberManagementMapper;
 
-    public List<Map> selectAll(){
-        return this.MemberManagementMapper.testSelect();
-    }
-
-    public void testInsert(Map map){
-        this.MemberManagementMapper.testInsert(map);
+    public List<Map> initSelect(Map map){
+        return this.memberManagementMapper.initSelect(map);
     }
 
 }
