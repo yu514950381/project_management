@@ -13,6 +13,56 @@
     <script th:src="@{/layui-v2.2.5/layui/layui.js}"></script>
 </head>
 <body class="layui-layout-body" style="background-color: white">
+<script id="barDemo" type="text/html">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script>
+    layui.use('table', function(){
+        var table = layui.table;
+        //监听表格复选框选择
+        table.on('checkbox(demo)', function(obj){
+            console.log(obj)
+        });
+        //监听工具条
+        table.on('tool(demo)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'detail'){
+                layer.msg('ID：'+ data.id + ' 的查看操作');
+            } else if(obj.event === 'del'){
+                layer.confirm('真的删除行么', function(index){
+                    obj.del();
+                    layer.close(index);
+                });
+            } else if(obj.event === 'edit'){
+                layer.alert('233')
+            }
+        });
+
+        var $ = layui.$, active = {
+            getCheckData: function(){ //获取选中数据
+                var checkStatus = table.checkStatus('idTest')
+                    ,data = checkStatus.data;
+                layer.alert(JSON.stringify(data));
+            }
+            ,getCheckLength: function(){ //获取选中数目
+                var checkStatus = table.checkStatus('idTest')
+                    ,data = checkStatus.data;
+                layer.msg('选中了：'+ data.length + ' 个');
+            }
+            ,isAll: function(){ //验证是否全选
+                var checkStatus = table.checkStatus('idTest');
+                layer.msg(checkStatus.isAll ? '全选': '未全选')
+            }
+        };
+
+        $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+</script>
 <div class="layui-layout layui-layout-admin">
     <!--头部导航栏-->
     <div class="layui-header" th:include="headMenue">
@@ -23,12 +73,43 @@
 
     <div class="layui-body" style="background-color: white;">
         <div class="layui-main">
-            <fieldset class="layui-elem-field site-demo-button" style="margin-top: 30px;">
-                <legend>"标题"</legend>
-                <!--正文部分-->
-            </fieldset>
-        </div>
+            <div style="margin-bottom: 5px;">
+
+                <!-- 示例-970 -->
+                <ins class="adsbygoogle" style="display:inline-block;width:970px;height:40px" data-ad-slot="3820120620" data-ad-client="ca-pub-6111334333458862"></ins>
+
+            </div>
+
+            <div class="layui-btn-group demoTable">
+                <button class="layui-btn" data-type="getCheckData">未完成任务</button>
+                <button class="layui-btn" data-type="getCheckLength">已完成任务</button>
+                <button class="layui-btn" data-type="isAll">逾期任务</button>
+                <button class="layui-btn">跳转</button>
+            </div>
+
+            <table class="layui-table" lay-data="{url:'/missionManagementCtrl/showAllMission', page:true, id:'idTest',method:'post'}" lay-filter="demo">
+                <thead>
+                <tr>
+                    <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
+                    <th lay-data="{field:'Mission_Number', width:60, sort: true, fixed: true}">任务编号</th>
+                    <th lay-data="{field:'Mission_Name', width:130}">任务名</th>
+                    <th lay-data="{field:'Mission_state', width:130}">任务状态</th>
+                    <th lay-data="{field:'Mission_Number', width:150, sort: true}">任务所属项目</th>
+                    <th lay-data="{field:'Mission_Date_Begin', width:165, sort: true}">任务开始时间</th>
+                    <th lay-data="{field:'Mission_Date_Over', width:165, sort: true}">任务结束时间</th>
+                    <th lay-data="{field:'Mission_Details', width:110}">详情</th>
+
+                </tr>
+                </thead>
+            </table>
+    </div>
     </div>
 </div>
 </body>
+<script>
+
+    layui.use(['table','layer'], function() {
+        var table = layui.table;
+    });
+</script>
 </html>

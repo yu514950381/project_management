@@ -75,4 +75,18 @@ public class Project {
     public void setProject_Describe(String project_Describe) {
         Project_Describe = project_Describe;
     }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "Project_Id='" + Project_Id + '\'' +
+                ", Project_Name='" + Project_Name + '\'' +
+                ", Project_Type='" + Project_Type + '\'' +
+                ", Project_Date_Begin='" + Project_Date_Begin + '\'' +
+                ", Project_Date_Over='" + Project_Date_Over + '\'' +
+                ", Project_Working_Days='" + Project_Working_Days + '\'' +
+                ", Project_State='" + Project_State + '\'' +
+                ", Project_Describe='" + Project_Describe + '\'' +
+                '}';
+    }
 }

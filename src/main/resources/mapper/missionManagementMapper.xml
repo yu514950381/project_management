@@ -4,7 +4,7 @@
     <insert id="missionInsert" parameterType="com.feima.project_management.model.Mission" >
       INSERT into mission VALUES (#{Mission_Id},#{Mission_Name},#{Mission_Details},#{Mission_Role},#{Mission_Date_Begin},#{Mission_Date_Over})
     </insert>
-    <select id="missionselect">
+    <select id="missionSelect" parameterType="String" resultType="map">
       SELECT * from mission limit 15
     </select>
     <delete id="missionDeleteByPrimaryKey">

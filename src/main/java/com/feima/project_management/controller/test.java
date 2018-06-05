@@ -31,10 +31,7 @@ public class test {
     public String addProject(){
         return "add_project";
     }
-    @RequestMapping("/missionManagement")
-    public String missionManagement() {
-        return "/missionManagementCtrl";
-    }
+
 }
 
 

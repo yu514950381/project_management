@@ -6,6 +6,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * @author 李立国
+ * 项目管理的测试dao类
+ * 之后会将正式的功能上传到本类中
+ * */
+
 @Repository("/projectManagementMapper")
 public interface ProjectManagementMapper {
     /**
